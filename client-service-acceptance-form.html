@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- ============================================
+         CLIENT SERVICE ACCEPTANCE FORM
+         For Ruddraksh Research - Digio Integration
+         URL: https://ruddrakshresearch.com/client-service-acceptance-form/
+         ============================================ -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Service Acceptance Form - Ruddraksh Research</title>
+    
+    <!-- ==================== STYLESHEETS ==================== -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="https://ruddrakshresearch.com/wp-content/uploads/2023/12/logo-ruddrashresearch.png">
+    
+    <style>
+        /* ==================== BASE STYLES ==================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* ==================== HEADER STYLES ==================== */
+        .header {
+            background: linear-gradient(135deg, #1a3a5f 0%, #2c5282 100%);
+            color: white;
+            padding: 25px 0;
+            text-align: center;
+            border-radius: 10px 10px 0 0;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+        }
+        
+        .logo-icon {
+            font-size: 32px;
+            margin-right: 15px;
+            color: #f0b90b;
+        }
+        
+        h1 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 16px;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* ==================== FORM STYLES ==================== */
+        .form-container {
+            max-width: 800px;
+            margin: 0 auto 40px;
+        }
+        
+        .form-section {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .form-section h2 {
+            color: #1a3a5f;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #eaeaea;
+            font-size: 22px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .form-section h2 i {
+            margin-right: 10px;
+            color: #2c5282;
+        }
+        
+        .form-group {
+            margin-bottom: 22px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #444;
+            font-size: 15px;
+        }
+        
+        .required::after {
+            content: " *";
+            color: #e53e3e;
+        }
+        
+        input, textarea {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 15px;
+            transition: all 0.3s;
+        }
+        
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #2c5282;
+            box-shadow: 0 0 0 3px rgba(44, 82, 130, 0.1);
+        }
+        
+        textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .form-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .form-row .form-group {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .form-group-group {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .group-title {
+            font-size: 18px;
+            color: #2c5282;
+            margin-bottom: 20px;
+            padding-bottom: 8px;
+            border-bottom: 1px dashed #ddd;
+            font-weight: 600;
+        }
+        
+        /* ==================== MESSAGE STYLES ==================== */
+        .success-message {
+            display: none;
+            background-color: #c6f6d5;
+            color: #22543d;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            text-align: center;
+            border-left: 4px solid #38a169;
+        }
+        
+        .error-message {
+            display: none;
+            background-color: #fed7d7;
+            color: #9b2c2c;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            text-align: center;
+            border-left: 4px solid #e53e3e;
+        }
+        
+        .processing-message {
+            display: none;
+            background-color: #bee3f8;
+            color: #2c5282;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            text-align: center;
+            border-left: 4px solid #2c5282;
+        }
+        
+        .processing-message i {
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* ==================== BUTTON STYLES ==================== */
+        .submit-btn {
+            background: linear-gradient(to right, #2c5282, #1a3a5f);
+            color: white;
+            border: none;
+            padding: 16px 40px;
+            font-size: 18px;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: block;
+            margin: 30px auto;
+            width: 100%;
+            max-width: 300px;
+        }
+        
+        .submit-btn:hover {
+            background: linear-gradient(to right, #1a3a5f, #2c5282);
+            transform: translateY(-2px);
+            box-shadow: 0 7px 14px rgba(0, 0, 0, 0.1);
+        }
+        
+        .submit-btn:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        /* ==================== DISCLAIMER BOX ==================== */
+        .disclaimer-box {
+            background-color: #f8f9fa;
+            border-left: 4px solid #e53e3e;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 0 6px 6px 0;
+        }
+        
+        /* ==================== DEBUG INFO ==================== */
+        .debug-info {
+            display: none;
+            background: #f7fafc;
+            border: 1px solid #cbd5e0;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 20px;
+            font-size: 12px;
+            color: #4a5568;
+        }
+        
+        /* ==================== RESPONSIVE ==================== */
+        @media (max-width: 768px) {
+            .form-section { padding: 20px; }
+            h1 { font-size: 24px; }
+            .header { padding: 20px 15px; }
+            .form-row { gap: 15px; }
+            .form-row .form-group { min-width: 100%; }
+        }
+        
+        .form-note { font-size: 14px; color: #666; margin-top: 5px; font-style: italic; }
+        .date-format-note { font-size: 13px; color: #666; margin-top: 5px; }
+    </style>
+</head>
+<body>
+    <!-- ==================== MAIN CONTAINER ==================== -->
+    <div class="container">
+        
+        <!-- ==================== HEADER ==================== -->
+        <div class="header">
+            <div class="logo-container">
+                <i class="fas fa-file-contract logo-icon"></i>
+                <div>
+                    <h1>Client Service Acceptance Form</h1>
+                    <p class="subtitle">Ruddraksh Research - SEBI Registered Research Analyst (Reg. No. INH000013749)</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- ==================== MESSAGES ==================== -->
+        <div id="processingMessage" class="processing-message">
+            <i class="fas fa-spinner"></i>
+            <h3>Processing Your Submission</h3>
+            <p>Please wait while we submit your form to Digio for Aadhaar verification...</p>
+        </div>
+        
+        <div id="successMessage" class="success-message">
+            <i class="fas fa-check-circle"></i>
+            <h3>Verification Email Sent!</h3>
+            <p>We have sent an Aadhaar verification email to <strong id="userEmail"></strong>.</p>
+            <p>Please check your inbox and click the link to complete verification.</p>
+            <p><small>Reference ID: <span id="referenceId"></span></small></p>
+            <p><small>Digio Request ID: <span id="digioRequestId"></span></small></p>
+        </div>
+        
+        <div id="errorMessage" class="error-message">
+            <i class="fas fa-exclamation-circle"></i>
+            <h3>Form Submission Failed</h3>
+            <p id="errorText">There was an error submitting the form. Please try again.</p>
+        </div>
+        
+        <!-- ==================== FORM ==================== -->
+        <form id="clientForm" class="form-container">
+            <div class="form-section">
+                <h2><i class="fas fa-user"></i> Personal Details</h2>
+                
+                <!-- Personal Identification -->
+                <div class="form-group-group">
+                    <div class="group-title">Personal Identification</div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="clientName" class="required">Client Name</label>
+                            <input type="text" id="clientName" name="clientName" required placeholder="Enter your full name">
+                        </div>
+                        <div class="form-group">
+                            <label for="fatherName" class="required">Father's Name</label>
+                            <input type="text" id="fatherName" name="fatherName" required placeholder="Enter father's name">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="dob" class="required">Date of Birth</label>
+                            <input type="text" id="dob" name="dob" required placeholder="DD-MM-YYYY">
+                            <p class="date-format-note">Format: DD-MM-YYYY (e.g., 05-04-2003)</p>
+                        </div>
+                        <div class="form-group">
+                            <label for="clientId" class="required">Client ID</label>
+                            <input type="text" id="clientId" name="clientId" required placeholder="Enter your client ID">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contact & Identification -->
+                <div class="form-group-group">
+                    <div class="group-title">Contact & Identification</div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="panNumber" class="required">PAN Number</label>
+                            <input type="text" id="panNumber" name="panNumber" required placeholder="Enter PAN number" maxlength="10">
+                            <p class="form-note">Format: ABCDE1234F</p>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="required">Email ID</label>
+                            <input type="email" id="email" name="email" required placeholder="Enter your email address">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Address Details -->
+                <div class="form-group-group">
+                    <div class="group-title">Address Details</div>
+                    <div class="form-group">
+                        <label for="address" class="required">Complete Address</label>
+                        <textarea id="address" name="address" required placeholder="Enter your complete address"></textarea>
+                    </div>
+                </div>
+            </div>
+        </form>
+        
+        <!-- ==================== SUBMIT BUTTON ==================== -->
+        <button type="submit" form="clientForm" class="submit-btn">
+            <i class="fas fa-paper-plane"></i> Submit for Aadhaar Verification
+        </button>
+        
+        <!-- ==================== DEBUG INFO ==================== -->
+        <div class="debug-info" id="debugInfo">
+            <h4>Debug Information</h4>
+            <pre id="debugContent"></pre>
+        </div>
+        
+        <!-- ==================== DECLARATION ==================== -->
+        <div class="disclaimer-box">
+            <h3><i class="fas fa-shield-alt"></i> Declaration</h3>
+            <p>I hereby declare that the information provided above is true and correct to the best of my knowledge. I understand that Ruddraksh Research is a SEBI Registered Research Analyst (Reg. No. INH000013749) and I have read and understood the disclaimer regarding market risks.</p>
+        </div>
+    </div>
+
+    <!-- ==================== JAVASCRIPT ==================== -->
+    <script>
+        // ==================== CONFIGURATION ====================
+        const DIGIO_BACKEND_URL = 'https://ruddrakshresearch.com/digiohandler.php';
+        
+        // ==================== DOM ELEMENTS ====================
+        const clientForm = document.getElementById('clientForm');
+        const submitBtn = document.querySelector('.submit-btn');
+        const successMessage = document.getElementById('successMessage');
+        const errorMessage = document.getElementById('errorMessage');
+        const processingMessage = document.getElementById('processingMessage');
+        const errorText = document.getElementById('errorText');
+        const referenceId = document.getElementById('referenceId');
+        const userEmail = document.getElementById('userEmail');
+        const digioRequestId = document.getElementById('digioRequestId');
+        const debugInfo = document.getElementById('debugInfo');
+        const debugContent = document.getElementById('debugContent');
+        
+        let isSubmitting = false;
+        
+        // ==================== HELPER FUNCTIONS ====================
+        function showMessage(element) {
+            [successMessage, errorMessage, processingMessage].forEach(msg => {
+                msg.style.display = 'none';
+            });
+            element.style.display = 'block';
+            element.scrollIntoView({behavior: 'smooth'});
+        }
+        
+        function hideAllMessages() {
+            [successMessage, errorMessage, processingMessage].forEach(msg => {
+                msg.style.display = 'none';
+            });
+        }
+        
+        // ==================== FORM VALIDATION ====================
+        function validateForm() {
+            const requiredFields = document.querySelectorAll('input[required], textarea[required]');
+            let isValid = true;
+            
+            // Check required fields
+            requiredFields.forEach(field => {
+                if (!field.value.trim()) {
+                    field.style.borderColor = '#e53e3e';
+                    isValid = false;
+                } else {
+                    field.style.borderColor = '#ddd';
+                }
+            });
+            
+            // PAN validation
+            const panField = document.getElementById('panNumber');
+            const panPattern = /^[A-Z]{5}[0-9]{4}[A-Z]{1}$/;
+            if (panField.value && !panPattern.test(panField.value.toUpperCase())) {
+                alert('Please enter a valid PAN number: ABCDE1234F');
+                panField.style.borderColor = '#e53e3e';
+                isValid = false;
+            }
+            
+            // Date validation
+            const dobField = document.getElementById('dob');
+            const dobPattern = /^(0[1-9]|[12][0-9]|3[01])-(0[1-9]|1[0-2])-(19|20)\d{2}$/;
+            if (dobField.value && !dobPattern.test(dobField.value)) {
+                alert('Please enter valid Date of Birth: DD-MM-YYYY');
+                dobField.style.borderColor = '#e53e3e';
+                isValid = false;
+            }
+            
+            return isValid;
+        }
+        
+        // ==================== FORM SUBMISSION HANDLER ====================
+        clientForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            if (isSubmitting) return;
+            // Validate form
+            if (!validateForm()) {
+                alert('Please fill all required fields correctly.');
+                return;
+            }
+            // Set submitting state
+            isSubmitting = true;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
+            submitBtn.disabled = true;
+            hideAllMessages();
+            showMessage(processingMessage);
+            // Collect form data - DIRECT FORMAT (No wrapper)
+            const formData = {
+                clientName: document.getElementById('clientName').value.trim(),
+                email: document.getElementById('email').value.trim(),
+                fatherName: document.getElementById('fatherName').value.trim(),
+                dob: document.getElementById('dob').value.trim(),
+                clientId: document.getElementById('clientId').value.trim(),
+                panNumber: document.getElementById('panNumber').value.trim().toUpperCase(),
+                address: document.getElementById('address').value.trim()
+            };
+            console.log('📤 Sending form data:', formData);
+            try {
+                // Send to Digio API - DIRECT DATA
+                const response = await fetch(DIGIO_BACKEND_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify(formData) // Direct data, no wrapper
+                });
+                console.log('📥 Response status:', response.status, response.statusText);
+                // Get response as text first for debugging
+                const responseText = await response.text();
+                console.log('📥 Raw response:', responseText);
+                let result;
+                try {
+                    result = JSON.parse(responseText);
+                } catch (parseError) {
+                    console.error('❌ JSON parse error:', parseError);
+                    throw new Error('Invalid response from server. Please try again.');
+                }
+                console.log('📦 Parsed result:', result);
+                if (result.success) {
+                    // Show success message
+                    userEmail.textContent = formData.email;
+                    referenceId.textContent = result.details?.reference_id || result.reference_id || 'N/A';
+                    digioRequestId.textContent = result.details?.kyc_request_id || result.kyc_request_id || 'N/A';
+                    successMessage.innerHTML = `
+                        <i class="fas fa-check-circle"></i>
+                        <h3>✅ Verification Request Sent!</h3>
+                        <p>We have sent an Aadhaar verification email to <strong>${formData.email}</strong>.</p>
+                        <p>Please check your inbox (and spam folder) for the verification link.</p>
+                        <p><small>Reference ID: ${result.details?.reference_id || 'N/A'}</small></p>
+                        <p><small>KYC Request ID: ${result.details?.kyc_request_id || 'N/A'}</small></p>
+                        <p><small>Status: ${result.details?.status || 'sent'}</small></p>
+                    `;
+                    showMessage(successMessage);
+                    // Reset form
+                    clientForm.reset();
+                    console.log('✅ Success! KYC request sent to:', formData.email);
+                    // Auto-hide success message after 15 seconds
+                    setTimeout(() => {
+                        successMessage.style.display = 'none';
+                    }, 15000);
+                } else {
+                    // Show error message
+                    errorText.textContent = result.message || 'Submission failed. Please try again.';
+                    showMessage(errorMessage);
+                    console.error('❌ API Error:', result);
+                }
+            } catch (error) {
+                // Show error message
+                errorText.textContent = 'Error: ' + error.message;
+                showMessage(errorMessage);
+                console.error('🚨 Fetch Error:', error);
+                // Show debug info
+                debugContent.textContent = JSON.stringify({
+                    error: error.message,
+                    formData: formData,
+                    url: DIGIO_BACKEND_URL,
+                    time: new Date().toISOString()
+                }, null, 2);
+                debugInfo.style.display = 'block';
+            } finally {
+                // Reset submitting state
+                isSubmitting = false;
+                submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Submit for Aadhaar Verification';
+                submitBtn.disabled = false;
+                // Hide processing message
+                setTimeout(() => {
+                    processingMessage.style.display = 'none';
+                }, 1000);
+            }
+        });
+        
+        // ==================== INPUT FORMATTING ====================
+        // PAN auto-formatting
+        document.getElementById('panNumber').addEventListener('input', function(e) {
+            this.value = this.value.toUpperCase().replace(/[^A-Z0-9]/g, '');
+        });
+        
+        // Date auto-formatting
+        document.getElementById('dob').addEventListener('input', function(e) {
+            let value = this.value.replace(/[^0-9-]/g, '');
+            if (value.length > 2 && value[2] !== '-') value = value.substring(0,2) + '-' + value.substring(2);
+            if (value.length > 5 && value[5] !== '-') value = value.substring(0,5) + '-' + value.substring(5);
+            if (value.length > 10) value = value.substring(0,10);
+            this.value = value;
+        });
+        
+        // Client ID suggestion
+        document.getElementById('clientId').addEventListener('blur', function() {
+            if (!this.value.trim()) {
+                const name = document.getElementById('clientName').value.trim();
+                if (name) {
+                    const initials = name.split(' ').map(n => n.charAt(0)).join('').toUpperCase();
+                    this.value = initials + Math.floor(1000 + Math.random() * 9000);
+                }
+            }
+        });
+        
+        // Real-time validation styling
+        document.querySelectorAll('input, textarea').forEach(input => {
+            input.addEventListener('blur', function() {
+                if (this.hasAttribute('required') && !this.value.trim()) {
+                    this.style.borderColor = '#e53e3e';
+                } else {
+                    this.style.borderColor = '#ddd';
+                }
+            });
+            input.addEventListener('input', function() {
+                if (this.value.trim()) this.style.borderColor = '#2c5282';
+            });
+        });
+        
+        // ==================== INITIALIZATION ====================
+        console.log('✅ Form loaded successfully');
+        console.log('🔗 Backend URL:', DIGIO_BACKEND_URL);
+        
+        // Test connection shortcut (Ctrl+Shift+T)
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey && e.shiftKey && e.key === 'T') {
+                fetch(DIGIO_BACKEND_URL + '?test=1')
+                    .then(r => r.json())
+                    .then(data => alert('Connection Test: ' + (data.status === 'active' ? '✅ OK' : '❌ Failed')))
+                    .catch(err => alert('Test Failed: ' + err.message));
+            }
+        });
+    </script>
+</body>
+</html>

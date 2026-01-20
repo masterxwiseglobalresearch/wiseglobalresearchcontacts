@@ -1,0 +1,652 @@
+/* CSS Variables for reusability */
+:root {
+  --primary-green: #37eb34;
+  --hover-yellow: #facc15;
+  --text-color: #ffffff;
+  --bg-opacity: rgba(255, 255, 255, 0.1);
+  /* Offset applied when external banners (eg. Google Translate) appear */
+  --nav-offset: 0px;
+}
+
+/* Accessibility override: when the page uses a light theme (text is dark on light bg)
+   ensure navbar interactive items are sufficiently dark to meet 4.5:1 contrast
+   against the navbar background which in the default theme is a bright gradient. */
+html[data-theme-light="true"] nav, html[data-theme-light="true"] nav .nav-item,
+html[data-theme-light="true"] .nav-scroll > * > a,
+html[data-theme-light="true"] .nav-scroll > * > button,
+html[data-theme-light="true"] .nav-scroll > * > .nav-item,
+html[data-theme-light="true"] .mobile-menu .nav-item {
+  /* use a reliably dark color that contrasts against bright navbar gradients */
+  color: #0b1220 !important;
+}
+
+/* Ensure the main navbar content uses the navbar color variable so ThemeContext
+   overrides (like --navbar-color) reliably apply across links and buttons. We
+   avoid touching absolute dropdown panels which explicitly set their own text
+   color (e.g. `text-black`). */
+nav, nav .nav-item, nav .nav-scroll, nav .nav-scroll > *, nav .rotate-logo {
+  color: var(--navbar-color, var(--text-color, #0b1220));
+}
+
+/* Ensure the top contact bar and its social icons sit above any fixed tickers or overlays
+   and accept pointer events. */
+.top-contact-socials {
+  z-index: 11001; /* higher than ticker (was 40) and above most overlays */
+  position: relative;
+}
+.top-contact-socials a {
+  pointer-events: auto; /* ensure links receive clicks */
+}
+
+/* Elevated glassy navbar look */
+nav {
+  background-clip: padding-box; /* ensure border doesn't show through gradient */
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  -webkit-backdrop-filter: saturate(1.05) blur(6px);
+  backdrop-filter: saturate(1.05) blur(6px);
+}
+
+/* Target only top-level nav links and buttons (direct children of the nav-scroll)
+   so dropdown panels (which are nested deeper) keep their own text color. */
+.nav-scroll > * > a,
+.nav-scroll > * > button,
+.nav-scroll > * > .nav-item {
+  color: var(--navbar-color, var(--text-color, #0b1220)) !important;
+}
+
+/* Ensure nested links within nav-items also inherit the correct color */
+.nav-item a {
+  color: inherit !important;
+}
+
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+@keyframes swingIn {
+  0% {
+    transform: translateX(100%) rotateY(-30deg);
+    opacity: 0;
+  }
+  70% {
+    transform: translateX(-10%) rotateY(10deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(0) rotateY(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes swingOut {
+  0% {
+    transform: translateX(0) rotateY(0deg);
+    opacity: 1;
+  }
+  30% {
+    transform: translateX(-10%) rotateY(10deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100%) rotateY(-30deg);
+    opacity: 0;
+  }
+}
+
+.animate-fadeIn { animation: fadeIn 0.3s ease-in-out; }
+.animate-slideDown { animation: slideDown 0.3s ease-in-out; will-change: transform, opacity; }
+.animate-slideIn { animation: slideIn 0.4s ease-in-out; will-change: transform; }
+
+/* Underline animation for desktop nav items */
+.nav-item {
+  --underline-scale: 0;
+}
+.nav-item::after {
+  content: '';
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 6px;
+  height: 3px;
+  background: linear-gradient(90deg, rgba(55,235,52,0.95), rgba(122,161,255,0.95));
+  border-radius: 999px;
+  transform-origin: left center;
+  transform: scaleX(var(--underline-scale));
+  transition: transform 260ms cubic-bezier(.2,.9,.2,1);
+  pointer-events: none;
+}
+.nav-item:hover::after,
+.nav-item:focus::after,
+.nav-item.active::after {
+  --underline-scale: 1;
+}
+
+/* Ensure the fixed navbar respects any top offset from external banners */
+nav.fixed, nav {
+  top: var(--nav-offset, 0px);
+  transition: top 0.18s ease;
+}
+
+/* Bouncing animation */
+@keyframes bounce {
+  0%, 20%, 60%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-10px); }
+  80% { transform: translateY(-5px); }
+}
+
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .animate-fadeIn, .animate-slideDown, .animate-slideIn {
+    animation: none;
+    transform: none;
+    opacity: 1;
+  }
+}
+
+/* Navbar Item Styles */
+.nav-item {
+  position: relative;
+  padding: 8px 12px;
+  margin: 0 6px;
+  cursor: pointer;
+  transition: none;
+  font-weight: 500;
+  box-sizing: border-box; /* ensure borders don't change layout/size */
+}
+
+/* Responsive logo image: fill the circular container while remaining crisp and responsive */
+.wise-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Thicker, rounded, gradient underline for nav items. Uses transform for smoother animation. */
+.nav-item::after { display: none; }
+
+/* Subtle hover/active background instead of underline */
+.nav-item:hover {
+  background: rgba(56, 189, 93, 0.06); /* very light green tint */
+  border-radius: 8px;
+}
+.nav-item.active {
+  /* Keep a subtle background to indicate active, but remove the green border */
+  background: rgba(56, 189, 93, 0.08);
+  border-radius: 8px;
+  border: none; /* removed per request */
+  box-shadow: none;
+}
+
+/* Logo Animation */
+.rotate-logo:hover img {
+  transform: rotate(360deg);
+  transition: transform 0.6s ease-in-out;
+}
+
+/* Slight floating effect for logo on hover */
+.rotate-logo:hover {
+  transform: translateY(-3px);
+  transition: transform 0.28s ease;
+}
+
+/* Logo wrapper and image: enforce true circle and cover behavior */
+.rotate-logo > div {
+  width: 48px;
+  height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  overflow: hidden; /* clip to circle */
+}
+
+.rotate-logo img.logo-hover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* ensure the image fills the circle */
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .rotate-logo > div { width: 56px; height: 56px; }
+  .rotate-logo img.logo-hover { width: 100%; height: 100%; }
+}
+
+/* Icon Styles */
+svg {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+}
+
+/* TopNavItem helper: show label above icon on desktop */
+.desktop-menu .nav-item {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  min-width: 64px; /* keep a minimum for icon visibility */
+  white-space: nowrap; /* prevent label wrapping */
+}
+
+
+
+.desktop-menu .nav-item span { display: block; }
+
+/* Force icon above label for top-nav items */
+.desktop-menu .nav-item .topnav-icon { order: 0; margin-bottom: 4px; }
+.desktop-menu .nav-item .topnav-label { order: 1; font-size: 12px; }
+
+/* Prevent the top-level nav from wrapping on medium screens; allow horizontal scroll */
+.nav-scroll {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0,0,0,0.12) transparent;
+}
+
+/* Hide default scrollbar but provide a thin visible track on hover for desktop */
+.nav-scroll::-webkit-scrollbar { height: 8px; }
+.nav-scroll::-webkit-scrollbar-track { background: transparent; }
+.nav-scroll::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.12); border-radius: 8px; }
+.nav-scroll:hover::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.18); }
+
+/* Ensure nav items don't shrink inside flex container so icons remain visible */
+.nav-item { flex: 0 0 auto; }
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .nav-item {
+    display: block;
+    width: 100%;
+    padding: 12px 0;
+    text-align: left;
+    font-size: 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .nav-item::after {
+    display: none;
+  }
+
+  .desktop-menu,
+  .group {
+    display: none !important;
+  }
+
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    cursor: pointer;
+  }
+
+  .hamburger .bar {
+    width: 25px;
+    height: 3px;
+    background-color: var(--text-color);
+    transition: all 0.3s ease;
+  }
+
+  /* Make hamburger bars slightly more refined */
+  .hamburger .bar { border-radius: 2px; box-shadow: 0 1px 0 rgba(0,0,0,0.08) inset; }
+
+  .hamburger.open .bar:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+    /* Slightly reduce container for very small screens */
+    .rotate-logo > div { width: 40px; height: 40px; }
+
+  .hamburger.open .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.open .bar:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+  }
+
+  .mobile-back-btn {
+    margin-top: 8px;
+    width: 100%;
+    padding: 10px 12px;
+    background: rgba(255, 255, 255, 0.226);
+    color: var(--text-color);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 700;
+  }
+
+  /* Hide long contact text in the top bar on very small screens to avoid overflow */
+  .top-contact-text {
+    display: inline-block;
+  }
+
+  /* Ensure top bar search input is usable on small screens: allow it to shrink and expand */
+  .top-contact-bar-search {
+    flex: 1 1 auto;
+    min-width: 120px;
+    max-width: 420px;
+  }
+
+  /* Social icon sizing: use em units so the svg scales with container's font-size
+     and remains crisp. Provide smaller sizes on narrow screens. */
+  .social-icon {
+    width: 1.2em;
+    height: 1.2em;
+    display: inline-block;
+  }
+
+  /* Top contact bar social anchors: make them flexible and shrink if needed */
+  .top-contact-socials a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 32px;
+    min-height: 32px;
+    padding: 6px;
+    box-sizing: border-box;
+  }
+
+  @media (max-width: 420px) {
+    .top-contact-text { display: none !important; }
+    .rotate-logo > div { width: 44px; height: 44px; }
+    .rotate-logo img.logo-hover { width: 44px; height: 44px; }
+    .mobile-drawer { padding: 18px 12px; }
+    .top-contact-socials a { min-width: 28px; min-height: 28px; padding: 4px; border-radius: 6px; }
+    .social-icon { width: 1em; height: 1em; }
+    /* Make search input slightly smaller on very small devices so it fits */
+    input[type="search"]#nav-search, input[type="search"]#mobile-search {
+      font-size: 13px;
+      padding-top: 8px;
+      padding-bottom: 8px;
+    }
+  }
+
+  .mobile-back-btn:active {
+    transform: translateY(1px);
+  }
+
+  /* Staggered entrance animation for mobile menu children */
+  @keyframes mobileStaggerIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .mobile-stagger > * {
+    opacity: 0;
+    transform: translateY(8px);
+    animation-name: mobileStaggerIn;
+    animation-duration: 360ms;
+    animation-fill-mode: both;
+    animation-timing-function: cubic-bezier(0.2, 0.9, 0.2, 1);
+  }
+
+  /* Make staggered items slightly more elevated on hover */
+  .mobile-menu-items .nav-item:hover {
+    transform: translateY(-4px) scale(1.005);
+    box-shadow: 0 6px 18px rgba(2,6,23,0.08);
+  }
+
+  /* Provide rising delays for up to 12 immediate children */
+  .mobile-stagger > *:nth-child(1) { animation-delay: 0.03s; }
+  .mobile-stagger > *:nth-child(2) { animation-delay: 0.08s; }
+  .mobile-stagger > *:nth-child(3) { animation-delay: 0.13s; }
+  .mobile-stagger > *:nth-child(4) { animation-delay: 0.18s; }
+  .mobile-stagger > *:nth-child(5) { animation-delay: 0.23s; }
+  .mobile-stagger > *:nth-child(6) { animation-delay: 0.28s; }
+  .mobile-stagger > *:nth-child(7) { animation-delay: 0.33s; }
+  .mobile-stagger > *:nth-child(8) { animation-delay: 0.38s; }
+  .mobile-stagger > *:nth-child(9) { animation-delay: 0.43s; }
+  .mobile-stagger > *:nth-child(10) { animation-delay: 0.48s; }
+  .mobile-stagger > *:nth-child(11) { animation-delay: 0.53s; }
+  .mobile-stagger > *:nth-child(12) { animation-delay: 0.58s; }
+
+  /* Slight hover microinteraction for mobile links */
+  .mobile-menu-items .nav-item { transition: transform 160ms ease, background 180ms ease, color 180ms ease; }
+  .mobile-menu-items .nav-item:active,
+  .mobile-menu-items .nav-item:focus {
+    transform: translateY(-2px);
+  }
+}
+
+/* Tablet Styles */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .nav-item {
+    font-size: 0.9rem;
+    padding: 6px 10px;
+  }
+
+  .desktop-menu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .group .nav-item {
+    font-size: 0.85rem;
+  }
+
+  .mobile-drawer,
+  .hamburger {
+    display: none !important;
+  }
+}
+
+/* Desktop Styles */
+@media (min-width: 1025px) {
+  .group:hover .group-hover\:flex {
+    display: flex;
+  }
+
+  .nav-item {
+    font-size: 1rem;
+  }
+
+  .mobile-drawer,
+  .hamburger {
+    display: none !important;
+  }
+
+  /* Keep desktop nav items in a single row with consistent spacing */
+  .desktop-menu {
+    display: block !important; /* wrapper only; layout is applied to .nav-scroll */
+    width: 100%;
+    overflow: visible;
+  }
+
+  /* Use flex so items keep natural width with an even gap */
+  .nav-scroll {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    gap: 12px; /* consistent spacing between items */
+    width: 100%;
+    overflow: visible; /* allow dropdowns */
+  }
+
+  /* Slightly larger gap on very wide screens */
+  @media (min-width: 1280px) {
+    .nav-scroll { gap: 16px; }
+  }
+
+  /* Fallback for browsers without flex gap support */
+  @supports not (gap: 1rem) {
+    .nav-scroll > * { margin-left: 12px; }
+    .nav-scroll > *:first-child { margin-left: 0; }
+    @media (min-width: 1280px) {
+      .nav-scroll > * { margin-left: 16px; }
+      .nav-scroll > *:first-child { margin-left: 0; }
+    }
+  }
+
+  .nav-scroll > * {
+    min-width: 0; /* allow shrinking if needed */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .nav-scroll .nav-item {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 44px; /* uniform button height */
+    padding: 0 12px;
+    text-align: center;
+    white-space: nowrap;
+    box-sizing: border-box;
+  }
+
+  /* Slightly tighten nav-item padding */
+  .desktop-menu .nav-item {
+    padding: 6px 10px;
+  }
+}
+
+/* Active nav-item underline persistence */
+.nav-item.active::after {
+  width: 100%;
+}
+
+/* Ensure dropdown panels escape scroll/overflow parents and sit above content */
+.desktop-menu, .nav-scroll {
+  overflow: visible !important;
+}
+
+.desktop-menu .group > div,
+.nav-scroll .group > div,
+.desktop-menu .group > .absolute,
+.nav-scroll .absolute {
+  position: absolute !important;
+  z-index: 99999 !important;
+  overflow: visible !important;
+  transform: translateZ(0); /* promote to its own layer to avoid clipping in some browsers */
+}
+
+.mobile-overlay {
+  position: fixed;
+  top: var(--nav-offset, 0px);
+  left: 0;
+  width: 100vw;
+  height: calc(100vh - var(--nav-offset, 0px));
+  background: rgba(0,0,0,0.4);
+  z-index: 9998;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.mobile-overlay.open {
+  opacity: 1;
+}
+
+/* Mobile drawer container animation helpers */
+.mobile-menu {
+  /* The inline styles in JS control transform, but add opacity + will-change hints for smoother anim */
+  opacity: 0;
+  transition: opacity 260ms ease, transform 300ms cubic-bezier(.2,.9,.2,1);
+  will-change: transform, opacity;
+}
+.mobile-menu.open {
+  opacity: 1;
+  /* small entrance reveal for children handled with .mobile-stagger */
+}
+
+/* Make the drawer content slightly swing in for a premium feel on open */
+.mobile-menu.open .mobile-stagger > * {
+  animation-name: mobileStaggerIn;
+  animation-duration: 380ms;
+  animation-fill-mode: both;
+  animation-timing-function: cubic-bezier(.2,.9,.2,1);
+}
+
+/* Animated toggle icon (close icon rotates subtly when opening) */
+.drawer-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  padding: 6px;
+}
+.drawer-toggle .toggle-icon {
+  transition: transform 260ms cubic-bezier(.2,.9,.2,1), opacity 180ms ease;
+  color: var(--navbar-color, var(--text-color));
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.drawer-toggle.open .toggle-icon {
+  transform: rotate(90deg) scale(1.03);
+}
+
+/* Make the hamburger to close morph smoother (slightly slower easing) */
+.hamburger .bar {
+  transition: transform 300ms cubic-bezier(.2,.9,.2,1), opacity 220ms ease, background-color 180ms ease;
+}
+.hamburger.open .bar:nth-child(1) { transform-origin: center; }
+.hamburger.open .bar:nth-child(3) { transform-origin: center; }
+
+
+.mobile-drawer {
+  position: fixed;
+  top: calc(var(--nav-offset, 0px) + env(safe-area-inset-top, 0px));
+  right: 0;
+  height: calc(100dvh - var(--nav-offset, 0px) - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px));
+  width: max(50vw, 300px);
+  max-width: 80vw;
+  background-blend-mode: overlay;
+  border: 1px solid rgba(0,0,0,0.06);
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  z-index: 9999;
+  overflow-y: auto;
+  display: block;
+  will-change: transform, opacity;
+  contain: content;
+  overscroll-behavior: contain;
+  /* Animations will be applied via inline style in JS */
+}
+
+/* The animation for .mobile-drawer.open will be handled via inline style in JS */
+
+.plus-icon {
+  transition: transform 0.3s ease;
+}
+
+@keyframes spin-bounce {
+  0% {
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    transform: scale(1.2) rotate(225deg);
+  }
+  100% {
+    transform: scale(1) rotate(405deg);
+  }
+}
+
+.plus-icon.open {
+  animation: spin-bounce 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  transform: rotate(405deg); /* End state of the animation */
+}

@@ -1,0 +1,21 @@
+{
+  "defaults": {
+    "timeout": 30000,
+  "wait": 1500,
+  "waitForElement": "title",
+    "standard": "WCAG2AA",
+    "screenCapture": "pa11y-reports/${date}-${page}.png",
+    "ignore": ["notice"]
+  },
+  "urls": [
+  { "url": "http://localhost:3000/" },
+  { "url": "http://localhost:3000/about" },
+  { "url": "http://localhost:3000/services" },
+  { "url": "http://localhost:3000/contact" },
+  { "url": "http://localhost:3000/research-reports" },
+  { "url": "http://localhost:3000/adminlogin" },
+  { "url": "http://localhost:3000/accessibility-statement" },
+  { "url": "http://localhost:3000/accessibility-feedback" },
+  { "url": "http://localhost:3000/search" }
+  ]
+}

@@ -1,0 +1,113 @@
+{
+  "rules": {
+    "qr": {
+      ".read": true,
+      ".write": true
+    },
+    "jobs": {
+      ".read": true,
+      "$id": {
+  ".write": "auth != null && (root.child('admins').child(auth.uid).val() === true || auth.token.email == 'carrier@wiseglobalresearch.com' || auth.token.email == 'Carrier@wiseglobalresearch.com')"
+      },
+      ".indexOn": ["active", "createdAt"]
+    },
+    "supportUsers": {
+      "$uid": {
+        ".read": "auth != null && auth.uid === $uid",
+        ".write": "auth != null && root.child('admins').child(auth.uid).val() === true"
+      }
+    },
+    "admins": {
+      ".read": "auth != null && root.child('admins').child(auth.uid).val() === true",
+      ".write": "auth != null && root.child('admins').child(auth.uid).val() === true"
+    },
+    "admin": {
+      "popupImage": {
+        ".read": true,
+        ".write": "auth != null && root.child('admins').child(auth.uid).val() === true"
+      },
+      "popupMedia": {
+        ".read": true,
+        ".write": "auth != null && root.child('admins').child(auth.uid).val() === true"
+      }
+    },
+    "chatbot-submissions": {
+      ".read": "auth != null && root.child('admins').child(auth.uid).val() === true",
+      "$id": {
+        ".write": "(auth != null && root.child('admins').child(auth.uid).val() === true) || (!data.exists() && newData.child('timestamp').isNumber() && newData.child('message').isString() && (!newData.child('honeypot').exists() || newData.child('honeypot').val() == ''))"
+      },
+      ".indexOn": ["timestamp"]
+    },
+    "homeFormSubmissions": {
+  ".read": "auth != null && (root.child('admins').child(auth.uid).val() === true || auth.token.email == 'carrier@wiseglobalresearch.com' || auth.token.email == 'Carrier@wiseglobalresearch.com')",
+      "$id": {
+        ".write": "(auth != null && root.child('admins').child(auth.uid).val() === true) || (!data.exists() && ((newData.child('timestamp').isNumber() || newData.child('timestamp').isString()) && newData.child('email').isString() && (!newData.child('honeypot').exists() || newData.child('honeypot').val() == '')))"
+      },
+      ".indexOn": ["timestamp", "jobId"]
+    },
+    "jobApplications": {
+      ".read": "auth != null && (root.child('admins').child(auth.uid).val() === true || auth.token.email == 'carrier@wiseglobalresearch.com' || auth.token.email == 'Carrier@wiseglobalresearch.com')",
+      "$id": {
+        ".write": "(auth != null && (root.child('admins').child(auth.uid).val() === true || auth.token.email == 'carrier@wiseglobalresearch.com' || auth.token.email == 'Carrier@wiseglobalresearch.com')) || (!data.exists() && ((newData.child('timestamp').isNumber() || newData.child('timestamp').isString()) && newData.child('email').isString() && newData.child('jobId').isString() && (!newData.child('honeypot').exists() || newData.child('honeypot').val() == '')))"
+      },
+      ".indexOn": ["timestamp", "jobId"]
+    },
+    "popoForms": {
+      ".read": true,
+      "$id": {
+        ".write": "(auth != null && root.child('admins').child(auth.uid).val() === true) || (!data.exists() && ((newData.child('timestamp').isString() || newData.child('timestamp').isNumber()) && newData.child('city').isString() && newData.child('interest').isString() && (!newData.child('honeypot').exists() || newData.child('honeypot').val() == '')))"
+      },
+      ".indexOn": ["timestamp"]
+    },
+    "homePageContactSubmissions": {
+      ".read": "auth != null && root.child('admins').child(auth.uid).val() === true",
+      "$id": {
+        ".write": "(auth != null && root.child('admins').child(auth.uid).val() === true) || (!data.exists() && ((newData.child('timestamp').isNumber() || newData.child('timestamp').isString()) && newData.child('name').isString() && newData.child('email').isString() && newData.child('phone').isString() && newData.child('message').isString() && (!newData.child('honeypot').exists() || newData.child('honeypot').val() == '')))"
+      },
+      ".indexOn": ["timestamp"]
+    },
+    "complaints": {
+      ".read": "auth != null && (root.child('admins').child(auth.uid).val() === true || root.child('supportUsers').child(auth.uid).val() === true)",
+      "$id": {
+        ".write": "(auth != null && root.child('admins').child(auth.uid).val() === true) || (!data.exists() && newData.child('timestamp').isNumber() && newData.child('name').isString() && newData.child('email').isString() && newData.child('mobile').isString() && newData.child('complaintType').isString() && newData.child('description').isString() && (!newData.child('resolution').exists() || newData.child('resolution').isString())) || (data.exists() && root.child('supportUsers').child(auth.uid).val() === true && newData.child('name').val() == data.child('name').val() && newData.child('email').val() == data.child('email').val() && newData.child('mobile').val() == data.child('mobile').val() && newData.child('complaintType').val() == data.child('complaintType').val() && newData.child('description').val() == data.child('description').val() && ((!data.child('resolution').exists() && !newData.child('resolution').exists()) || newData.child('resolution').val() == data.child('resolution').val()) && newData.child('timestamp').val() == data.child('timestamp').val() && newData.child('status').isString() && newData.child('statusUpdatedAt').isNumber() && (!newData.child('closedAt').exists() || newData.child('closedAt').isNumber() || newData.child('closedAt').val() == null))"
+      },
+      ".indexOn": ["timestamp"]
+    },
+    "clientServiceConsentForms": {
+      "$id": {
+        ".write": "(auth != null && root.child('admins').child(auth.uid).val() === true) || (!data.exists() && ((newData.child('timestamp').isNumber() || newData.child('timestamp').isString()) && newData.child('clientName').isString() && newData.child('email').isString() && (!newData.child('honeypot').exists() || newData.child('honeypot').val() == '')))"
+      },
+      ".read": "auth != null && root.child('admins').child(auth.uid).val() === true",
+      ".indexOn": ["timestamp"]
+    },
+    "complaintTableData": {
+      ".read": "true",
+  ".write": "auth != null && (root.child('admins').child(auth.uid).val() === true || root.child('supportUsers').child(auth.uid).val() === true || (auth.token.email != null && (auth.token.email.toLowerCase() == 'carrier@wiseglobalresearch.com')))"
+    },
+    "monthlyDisposalTableData": {
+  ".read": true,
+  ".write": "auth != null && (root.child('admins').child(auth.uid).val() === true || root.child('supportUsers').child(auth.uid).val() === true || (auth.token.email != null && (auth.token.email.toLowerCase() == 'carrier@wiseglobalresearch.com')))"
+    },
+    "annualDisposalTableData": {
+  ".read": true,
+  ".write": "auth != null && (root.child('admins').child(auth.uid).val() === true || root.child('supportUsers').child(auth.uid).val() === true || (auth.token.email != null && (auth.token.email.toLowerCase() == 'carrier@wiseglobalresearch.com')))"
+    },
+    "reports": {
+      ".read": true,
+  ".write": "auth != null && (root.child('admins').child(auth.uid).val() === true || root.child('supportUsers').child(auth.uid).val() === true || (auth.token.email != null && (auth.token.email.toLowerCase() == 'carrier@wiseglobalresearch.com')))"
+    }
+    ,
+    "complaintHeaderMonthYear": {
+      ".read": true,
+      ".write": "auth != null && (root.child('admins').child(auth.uid).val() === true || root.child('supportUsers').child(auth.uid).val() === true || (auth.token.email != null && (auth.token.email.toLowerCase() == 'carrier@wiseglobalresearch.com')))"
+    }
+    ,
+  "accessibilityFeedback": {
+      ".read": "auth != null && root.child('admins').child(auth.uid).val() === true",
+      "$id": {
+        ".write": "(auth != null && root.child('admins').child(auth.uid).val() === true) || (!data.exists() && ((newData.child('timestamp').isNumber() || newData.child('timestamp').isString()) && newData.child('name').isString() && newData.child('email').isString() && newData.child('message').isString() && (!newData.child('consent').exists() || newData.child('consent').isBoolean())))"
+      },
+      ".indexOn": ["timestamp"]
+    }
+  }
+}

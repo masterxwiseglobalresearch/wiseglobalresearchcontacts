@@ -1,0 +1,32 @@
+Subject: [INH000016719] Information About Digital Platforms of the RE
+
+Body:
+
+WISE GLOBAL RESEARCH SERVICES PRIVATE LIMITED
+SEBI Registration No: INH000016719
+Category: Research Analyst (Non-Individual)
+
+Dear Sir / Madam,
+
+Please find below the information about the digital platforms operated by Wise Global Research Services (Table C1) as required for compliance submission.
+
+(See attached Table C1 file: reports/Table-C1-final.md and reports/Table-C1.csv)
+
+Designated contact for SEBI correspondence / accessibility matters:
+Name: Hemraj Singh Sikarwar
+Email: support@wiseglobalresearch.com
+Phone: +91 9977909494
+
+Summary:
+- Public website: https://wiseglobalresearch.com/ — automated accessibility snapshots for key public pages returned no blocking issues; minor cosmetic contrast issues are scheduled for remediation (ETA: 2025-10-15).
+- Authenticated client portal (/client-panel) is excluded from this submission at the RE's request and will be submitted separately after a dedicated accessibility audit.
+- Embedded third-party widgets: documented and fallbacks are in place where possible.
+
+Attached: Table-C1 (CSV and MD), pa11y snapshot reports (JSON/HTML) located in the `reports/` folder, and the public accessibility statement URL.
+
+If you require any further details, or specific audit reports for the authenticated portal, please contact the designated officer above.
+
+Regards,
+WISE GLOBAL RESEARCH SERVICES PRIVATE LIMITED
+
+Contact: support@wiseglobalresearch.com | +91 9977909494

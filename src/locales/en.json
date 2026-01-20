@@ -1,0 +1,114 @@
+{
+  "home": "Home",
+  "services": {
+    "title": "Services",
+    "cash": {
+      "title": "Cash",
+      "evaluationStockCash": "Evaluation Stock Cash",
+      "smartCash": "Smart Cash",
+      "cash": "Cash"
+    },
+    "option": {
+      "title": "Option",
+      "evaluationStockOption": "Evaluation Stock Option",
+      "impulseOption": "Impulse Option",
+      "smartFuture": "Smart Future",
+      "smartOptions": "Smart Options"
+    },
+    "specialization": {
+      "title": "Specialization",
+      "infinityClub": "Infinity Club",
+      "mcxSupreme": "MCX Supreme",
+      "galaxyMCX": "Galaxy MCX",
+      "universalCash": "Universal Cash"
+    },
+    "index": {
+      "title": "Index",
+      "evaluationIndexOptions": "Evaluation Index Options",
+      "impulseIndexOptions": "Impulse Index Options",
+      "smartIndexOption": "Smart Index Option",
+      "index": "Index"
+    },
+    "mcx": {
+      "title": "MCX",
+      "mcx": "MCX",
+      "bullions": "Bullions",
+      "energy": "Energy",
+      "metal": "Metal",
+      "mcxOption": "MCX Option"
+    }
+  },
+  "company": {
+    "title": "Company",
+    "aboutUs": "About Us",
+    "ourTeam": "Our Team",
+    "visionMission": "Vision & Mission"
+  },
+  "hrZone": {
+    "title": "HR Zone",
+    "career": "Career",
+    "training": "Training"
+  },
+  "insights": {
+    "title": "Insights",
+    "blogs": "Blogs",
+    "marketNews": "Market News",
+    "complaintData": "Complaint Data",
+    "grievanceRedressalProcess": "Grievance Redressal"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "adminPanel": "Admin Panel",
+    "clientPanel": "Client Panel",
+    "clientServiceConsent": "Client Service Consent Form",
+    "investorChart": "Investor Chart",
+    "antiMoneyLaundering": "Anti-Money Laundering"
+  },
+  "payment": "Payment",
+  "complaintBox": "Complaint Box",
+  "contactUs": "Enquiry Now",
+  "researchReports": "Research Reports"
+  ,
+  "pages": {
+    "About": {
+      "title": "About Wise Global Research",
+      "subtitle": "We provide market research, analytics, and actionable investment insights tailored for Indian investors and traders.",
+      "intro": {
+        "lead": "We prioritize what matters most: clear, practical, and research-backed guidance so you can make confident investment decisions.",
+        "body": "Wise Global Research is a SEBI registered analyst company dedicated to empowering you with straightforward, meaningful, and actionable recommendations and solutions, enabling you to confidently build wealth for any purpose. Committed to offering unbiased opinions backed by thorough research, we focus on providing valuable insights to participants in the Indian market."
+      },
+      "sections": {
+        "whoWeAre": {
+          "title": "Who we are",
+          "desc": "A SEBI-registered analyst firm focused on delivering unbiased, actionable market research for Indian exchanges."
+        },
+        "ourMission": {
+          "title": "Our mission",
+          "desc": "To empower retail and institutional investors with clear, compliance-aware research and strategies."
+        },
+        "ourVision": {
+          "title": "Our vision",
+          "desc": "To become a trusted source of market intelligence for Indian financial participants."
+        }
+      },
+      "contact": {
+        "cta": "Need help?"
+      },
+      "howWeWork": "How we work",
+      "steps": {
+        "research": {
+          "title": "Research & Analysis",
+          "desc": "In-depth market research and data-driven analysis focused on Indian markets."
+        },
+        "strategy": {
+          "title": "Strategy & Execution",
+          "desc": "Tailored trading and investment strategies designed to meet client goals."
+        },
+        "support": {
+          "title": "Ongoing Support",
+          "desc": "Continuous monitoring, reporting, and client support to adapt to market changes."
+        }
+      }
+    }
+  }
+}

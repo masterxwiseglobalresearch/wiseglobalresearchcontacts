@@ -1,0 +1,51 @@
+[
+  {
+    "file": "pa11y-build-accessibility-statement.json",
+    "ok": true,
+    "issues": 0,
+    "beforeSize": 2,
+    "afterSize": 2
+  },
+  {
+    "file": "pa11y-build-contact.json",
+    "ok": true,
+    "issues": 0,
+    "beforeSize": 2,
+    "afterSize": 2
+  },
+  {
+    "file": "pa11y-build-home.json",
+    "ok": true,
+    "issues": 0,
+    "beforeSize": 10,
+    "afterSize": 2
+  },
+  {
+    "file": "pa11y-cleaning-summary.json",
+    "ok": true,
+    "issues": 7,
+    "beforeSize": 902,
+    "afterSize": 902
+  },
+  {
+    "file": "pa11y-live-contact.json",
+    "ok": true,
+    "issues": 29,
+    "beforeSize": 16918,
+    "afterSize": 16918
+  },
+  {
+    "file": "pa11y-live-home.json",
+    "ok": true,
+    "issues": 26,
+    "beforeSize": 14908,
+    "afterSize": 14908
+  },
+  {
+    "file": "pa11y-summary.json",
+    "ok": true,
+    "issues": null,
+    "beforeSize": 11923,
+    "afterSize": 11923
+  }
+]

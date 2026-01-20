@@ -1,0 +1,288 @@
+{
+  "generatedAt": "2025-09-26T07:17:54.261Z",
+  "reports": {
+    "pa11y-build-accessibility-statement.json": {
+      "total": 0,
+      "byType": [],
+      "byMessage": [],
+      "bySelector": []
+    },
+    "pa11y-build-contact.json": {
+      "total": 0,
+      "byType": [],
+      "byMessage": [],
+      "bySelector": []
+    },
+    "pa11y-build-home.json": {
+      "total": 0,
+      "byType": [],
+      "byMessage": [],
+      "bySelector": []
+    },
+    "pa11y-cleaning-summary.json": {
+      "total": 7,
+      "byType": [
+        {
+          "key": "UNKNOWN",
+          "count": 7
+        }
+      ],
+      "byMessage": [
+        {
+          "key": "UNKNOWN",
+          "count": 7
+        }
+      ],
+      "bySelector": [
+        {
+          "key": "UNKNOWN",
+          "count": 7
+        }
+      ]
+    },
+    "pa11y-live-contact.json": {
+      "total": 29,
+      "byType": [
+        {
+          "key": "WCAG2AA.Principle1.Guideline1_3.1_3_1.F68",
+          "count": 8
+        },
+        {
+          "key": "WCAG2AA.Principle4.Guideline4_1.4_1_2.H91.InputText.Name",
+          "count": 7
+        },
+        {
+          "key": "WCAG2AA.Principle4.Guideline4_1.4_1_2.H91.A.NoContent",
+          "count": 5
+        },
+        {
+          "key": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Fail",
+          "count": 3
+        },
+        {
+          "key": "WCAG2AA.Principle2.Guideline2_4.2_4_1.H64.1",
+          "count": 2
+        },
+        {
+          "key": "WCAG2AA.Principle4.Guideline4_1.4_1_2.H91.InputEmail.Name",
+          "count": 1
+        },
+        {
+          "key": "WCAG2AA.Principle4.Guideline4_1.4_1_2.H91.InputTel.Name",
+          "count": 1
+        },
+        {
+          "key": "WCAG2AA.Principle4.Guideline4_1.4_1_2.H91.Textarea.Name",
+          "count": 1
+        },
+        {
+          "key": "WCAG2AA.Principle3.Guideline3_2.3_2_2.H32.2",
+          "count": 1
+        }
+      ],
+      "byMessage": [
+        {
+          "key": "This form field should be labelled in some way. Use the label element (either with a \"for\" attribute or wrapped around the form field), or \"title\", \"aria-label\" or \"aria-labelledby\" attributes as appropriate.",
+          "count": 8
+        },
+        {
+          "key": "This textinput element does not have a name available to an accessibility API. Valid names are: label element, title undefined, aria-label undefined, aria-labelledby undefined.",
+          "count": 7
+        },
+        {
+          "key": "Anchor element found with a valid href attribute, but no link content has been supplied.",
+          "count": 5
+        },
+        {
+          "key": "Iframe element requires a non-empty title attribute that identifies the frame.",
+          "count": 2
+        },
+        {
+          "key": "This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 1.6:1. Recommendation:  change background to #028a00.",
+          "count": 1
+        },
+        {
+          "key": "This emailinput element does not have a name available to an accessibility API. Valid names are: label element, title undefined, aria-label undefined, aria-labelledby undefined.",
+          "count": 1
+        },
+        {
+          "key": "This telinput element does not have a name available to an accessibility API. Valid names are: label element, title undefined, aria-label undefined, aria-labelledby undefined.",
+          "count": 1
+        },
+        {
+          "key": "This textarea element does not have a name available to an accessibility API. Valid names are: label element, title undefined, aria-label undefined, aria-labelledby undefined.",
+          "count": 1
+        },
+        {
+          "key": "This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 3.98:1. Recommendation:  change background to #2a73e1.",
+          "count": 1
+        },
+        {
+          "key": "This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 2.6:1. Recommendation:  change background to #0a53c1.",
+          "count": 1
+        }
+      ],
+      "bySelector": [
+        {
+          "key": "#main-content > div > div > div > form > input",
+          "count": 2
+        },
+        {
+          "key": "#main-content > div > div > div > form > div:nth-child(2) > input",
+          "count": 2
+        },
+        {
+          "key": "#main-content > div > div > div > form > div:nth-child(5) > textarea",
+          "count": 2
+        },
+        {
+          "key": "#goog-gt-votingInputSrcLang",
+          "count": 2
+        },
+        {
+          "key": "#goog-gt-votingInputTrgLang",
+          "count": 2
+        },
+        {
+          "key": "#goog-gt-votingInputSrcText",
+          "count": 2
+        },
+        {
+          "key": "#goog-gt-votingInputTrgText",
+          "count": 2
+        },
+        {
+          "key": "#goog-gt-votingInputVote",
+          "count": 2
+        },
+        {
+          "key": "html > body > iframe:nth-child(4)",
+          "count": 1
+        },
+        {
+          "key": "#root > div:nth-child(2) > button > span > span:nth-child(2)",
+          "count": 1
+        }
+      ]
+    },
+    "pa11y-live-home.json": {
+      "total": 26,
+      "byType": [
+        {
+          "key": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Fail",
+          "count": 9
+        },
+        {
+          "key": "WCAG2AA.Principle4.Guideline4_1.4_1_2.H91.InputText.Name",
+          "count": 5
+        },
+        {
+          "key": "WCAG2AA.Principle1.Guideline1_3.1_3_1.F68",
+          "count": 5
+        },
+        {
+          "key": "WCAG2AA.Principle4.Guideline4_1.4_1_2.H91.Button.Name",
+          "count": 4
+        },
+        {
+          "key": "WCAG2AA.Principle2.Guideline2_4.2_4_1.H64.1",
+          "count": 2
+        },
+        {
+          "key": "WCAG2AA.Principle3.Guideline3_2.3_2_2.H32.2",
+          "count": 1
+        }
+      ],
+      "byMessage": [
+        {
+          "key": "This textinput element does not have a name available to an accessibility API. Valid names are: label element, title undefined, aria-label undefined, aria-labelledby undefined.",
+          "count": 5
+        },
+        {
+          "key": "This form field should be labelled in some way. Use the label element (either with a \"for\" attribute or wrapped around the form field), or \"title\", \"aria-label\" or \"aria-labelledby\" attributes as appropriate.",
+          "count": 5
+        },
+        {
+          "key": "This button element does not have a name available to an accessibility API. Valid names are: title undefined, element content, aria-label undefined, aria-labelledby undefined.",
+          "count": 4
+        },
+        {
+          "key": "This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 3.76:1. Recommendation:  change text colour to #de3333.",
+          "count": 4
+        },
+        {
+          "key": "Iframe element requires a non-empty title attribute that identifies the frame.",
+          "count": 2
+        },
+        {
+          "key": "This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 2.28:1. Recommendation:  change text colour to #008932.",
+          "count": 2
+        },
+        {
+          "key": "This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 1.6:1. Recommendation:  change background to #028a00.",
+          "count": 1
+        },
+        {
+          "key": "This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 3.98:1. Recommendation:  change background to #2a73e1.",
+          "count": 1
+        },
+        {
+          "key": "This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 2.6:1. Recommendation:  change background to #0a53c1.",
+          "count": 1
+        },
+        {
+          "key": "This form does not contain a submit button, which creates issues for those who cannot submit the form using the keyboard. Submit buttons are INPUT elements with type attribute \"submit\" or \"image\", or BUTTON elements with type \"submit\" or omitted/invalid.",
+          "count": 1
+        }
+      ],
+      "bySelector": [
+        {
+          "key": "#goog-gt-votingInputSrcLang",
+          "count": 2
+        },
+        {
+          "key": "#goog-gt-votingInputTrgLang",
+          "count": 2
+        },
+        {
+          "key": "#goog-gt-votingInputSrcText",
+          "count": 2
+        },
+        {
+          "key": "#goog-gt-votingInputTrgText",
+          "count": 2
+        },
+        {
+          "key": "#goog-gt-votingInputVote",
+          "count": 2
+        },
+        {
+          "key": "html > body > iframe:nth-child(4)",
+          "count": 1
+        },
+        {
+          "key": "#root > div:nth-child(2) > button > span > span:nth-child(2)",
+          "count": 1
+        },
+        {
+          "key": "#main-content > div > section:nth-child(2) > div > div > div:nth-child(1) > div > div > button:nth-child(2)",
+          "count": 1
+        },
+        {
+          "key": "#main-content > div > section:nth-child(2) > div > div > div:nth-child(2) > div > div > button:nth-child(2)",
+          "count": 1
+        },
+        {
+          "key": "#main-content > div > section:nth-child(2) > div > div > div:nth-child(3) > div > div > button:nth-child(2)",
+          "count": 1
+        }
+      ]
+    },
+    "pa11y-summary.json": {
+      "total": 0,
+      "byType": [],
+      "byMessage": [],
+      "bySelector": []
+    }
+  }
+}

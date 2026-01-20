@@ -1,0 +1,43 @@
+.heading-purple {
+  color: #6366f1;
+}
+
+.heading-purple:hover {
+  color: #4f46e5; /* slightly darker on hover */
+}
+
+/* Card body text color: apply to common text elements inside the card container */
+.card-text p,
+.card-text li,
+.card-text span,
+.card-text a,
+.card-text div {
+  color: #0b1220;
+}
+
+/* Avoid overriding explicit utility classes like text-white on buttons/CTAs */
+
+/* Purple button utility */
+.btn-purple {
+  background: #6366f1;
+  color: #ffffff;
+  padding: 0.5rem 1.25rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+}
+.btn-purple:hover {
+  background: #4f46e5;
+}
+.btn-purple:focus {
+  outline: 3px solid rgba(99,102,241,0.25);
+  outline-offset: 2px;
+}
+
+/* Card border utility for inner boxes */
+.card-box {
+  border: 2px solid #6366f1;
+  border-radius: 0.75rem; /* matches rounded-lg/rounded-xl visuals */
+}
+.card-box:hover {
+  box-shadow: 0 8px 30px rgba(99,102,241,0.08);
+}

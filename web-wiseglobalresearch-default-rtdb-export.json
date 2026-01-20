@@ -1,0 +1,21 @@
+{
+  "admins": {
+    "whNP3XK0tHYDPJGyIjHAE6LfE9Q2": true
+  },
+  "supportUsers": {
+    "3ZpO4sSp6mhf4fm6SAQeAI6dkMu2": true
+  },
+  "hrUsers": {
+    "xKwM3kXuwsM0QT1e58Iq7ijBiW02": true
+  },
+  "homeFormSubmissions": {
+    "-OjRFHfqK3W3AShZuCbr": {
+      "email": "masterxtechnologies@gmail.com",
+      "honeypot": "",
+      "message": "test by chandan",
+      "name": "test Master X",
+      "phone": "7631657827",
+      "timestamp": 1768926817282
+    }
+  }
+}

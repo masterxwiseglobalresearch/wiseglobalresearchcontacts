@@ -1,0 +1,108 @@
+{
+  "description": "GTM tag/trigger/variable definitions for Wise Global Research - ready to create in GTM UI or to use as a reference for import",
+  "measurement_id": "G-NT0CQ6VRFF",
+  "variables": [
+    {
+      "name": "Page Path",
+      "type": "builtin",
+      "key": "{{Page Path}}"
+    },
+    {
+      "name": "Page URL",
+      "type": "builtin",
+      "key": "{{Page URL}}"
+    },
+    {
+      "name": "Click ID",
+      "type": "builtin",
+      "key": "{{Click ID}}"
+    },
+    {
+      "name": "Click Text",
+      "type": "builtin",
+      "key": "{{Click Text}}"
+    }
+  ],
+  "triggers": [
+    {
+      "name": "All Pages (Page View)",
+      "type": "pageview",
+      "condition": "All Page Views"
+    },
+    {
+      "name": "Pillar Page View",
+      "type": "pageview",
+      "condition": "Page Path contains /best-free-trading-platforms"
+    },
+    {
+      "name": "CTA Clicks",
+      "type": "click",
+      "condition": "Click Element matches CSS selector: .btn, .cta, [data-analytics]"
+    },
+    {
+      "name": "Download Clicks",
+      "type": "link click",
+  "condition": "Click URL matches RegEx: \\\\.pdf$|\\\\.csv$|\\\\.xlsx$|\\\\.zip$"
+    },
+    {
+      "name": "Outbound Link Clicks",
+      "type": "link click",
+      "condition": "Click URL does not contain your domain (use RegEx)"
+    },
+    {
+      "name": "Form Submission",
+      "type": "form submission",
+      "condition": "All Forms or specific Form ID"
+    }
+  ],
+  "tags": [
+    {
+      "name": "GA4 - Configuration",
+      "type": "ga4-config",
+      "measurement_id": "G-NT0CQ6VRFF",
+      "firing_trigger": "All Pages (Page View)"
+    },
+    {
+      "name": "GA4 - Event Viewed Pillar Page",
+      "type": "ga4-event",
+      "event_name": "viewed_pillar_page",
+      "parameters": ["page_path","page_title"],
+      "firing_trigger": "Pillar Page View"
+    },
+    {
+      "name": "GA4 - Event Clicked Button",
+      "type": "ga4-event",
+      "event_name": "clicked_button",
+      "parameters": ["button_text","button_id","page_path"],
+      "firing_trigger": "CTA Clicks"
+    },
+    {
+      "name": "GA4 - Event Download",
+      "type": "ga4-event",
+      "event_name": "download",
+      "parameters": ["file_url","file_name","page_path"],
+      "firing_trigger": "Download Clicks"
+    },
+    {
+      "name": "GA4 - Event Outbound Click",
+      "type": "ga4-event",
+      "event_name": "outbound_click",
+      "parameters": ["url","link_text","page_path"],
+      "firing_trigger": "Outbound Link Clicks"
+    },
+    {
+      "name": "GA4 - Event Form Submit",
+      "type": "ga4-event",
+      "event_name": "form_submit",
+      "parameters": ["form_id","form_action","page_path"],
+      "firing_trigger": "Form Submission"
+    },
+    {
+      "name": "GA4 - Event Attribution Captured",
+      "type": "ga4-event",
+      "event_name": "attribution_captured",
+      "parameters": ["utm_source","utm_medium","utm_campaign","gclid"],
+      "firing_trigger": "All Pages (Page View)"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "defaults": {
+    "timeout": 30000,
+    "wait": 1500,
+    "waitForElement": "title",
+    "standard": "WCAG2AA",
+    "screenCapture": "pa11y-reports/${date}-${page}.png",
+    "ignore": ["notice"]
+  },
+  "urls": [
+    { "url": "https://wiseglobalresearch.com/" },
+    { "url": "https://wiseglobalresearch.com/about" },
+    { "url": "https://wiseglobalresearch.com/services" },
+    { "url": "https://wiseglobalresearch.com/contact" },
+    { "url": "https://wiseglobalresearch.com/research-reports" },
+    { "url": "https://wiseglobalresearch.com/accessibility-statement" },
+    { "url": "https://wiseglobalresearch.com/accessibility-feedback" },
+    { "url": "https://wiseglobalresearch.com/search" }
+  ]
+}

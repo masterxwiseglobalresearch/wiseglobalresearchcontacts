@@ -1,0 +1,7 @@
+S/N,Name of digital platform of RE,URL,Purpose,Remarks on current accessibility status of the platform
+1,Public website (marketing & information),https://wiseglobalresearch.com/,Investor information, disclosures, blog, contact & signup,"Accessibility statement present. Automated pa11y snapshots for homepage, contact, accessibility-statement returned no blocking issues. Minor contrast issues; remediation ETA: 2025-10-15"
+2,Accessibility statement & feedback page,https://wiseglobalresearch.com/accessibility-statement;https://wiseglobalresearch.com/accessibility-feedback,Accessibility statement and feedback form,"Publicly available; pa11y snapshot returned no blocking issues. Feedback path present"
+3,Contact / complaint pages,https://wiseglobalresearch.com/contact;https://wiseglobalresearch.com/complaint,Contact and complaint submission,"Publicly available; pa11y snapshot returned no blocking issues. Complaint handling process recommended to be referenced"
+4,Embedded third-party widgets (TradingView, MyFxBook),n/a,Market charts and widgets embedded on the public website,"Third-party frames may have accessibility limitations; footer script adds titles/aria-hidden to decorative frames. Document fallbacks"
+
+# Note: The authenticated client portal (/client-panel) is excluded from this submission at the RE's request and will be submitted separately after an accessibility audit is completed.

@@ -1,0 +1,1 @@
+Dummy resume content for smoke test.\nName: Test Applicant\nEmail: smoke@example.com

@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Wise Global Research Services</title>
+
+    <!-- ✅ Favicon -->
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.webmanifest" />
+
+    <!-- ✅ Theme Colors -->
+    <meta name="theme-color" content="#000000" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+
+    <!-- ✅ Google Font Optimization -->
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="dns-prefetch" href="https://s3.tradingview.com">
+  <link rel="dns-prefetch" href="https://myfxbook.com">
+  <link rel="dns-prefetch" href="https://widget.myfxbook.com">
+  <link rel="preconnect" href="https://widget.myfxbook.com" crossorigin>
+  <link rel="preconnect" href="https://wiseglobalresearch.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&display=swap">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+  <!-- Removed Font Awesome CSS to avoid webfont downloads; using SVG icon packages instead -->
+
+    <!-- Google Analytics & Ads moved to Google Tag Manager (GTM).
+         Keeping a minimal dataLayer initialization so page-level pushes work before GTM loads. -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      // Example: dataLayer.push({ event: 'page_view', page_path: location.pathname });
+    </script>
+    <!-- dataLayer helpers: automatic form instrumentation and consent mode scaffold -->
+    <script>
+      (function(){
+        // Ensure dataLayer exists
+        window.dataLayer = window.dataLayer || [];
+
+        // Helper to push analytics events in a consistent shape
+        window.analyticsPush = function(eventName, payload){
+          try{
+            var obj = Object.assign({event: eventName}, payload || {});
+            window.dataLayer.push(obj);
+            return obj;
+          }catch(e){ console.error('analyticsPush error', e); }
+        };
+
+        // Auto-instrument forms that include `data-gtm-event` attribute
+        function instrumentForms(){
+          try{
+            var forms = document.querySelectorAll('form[data-gtm-event]');
+            Array.prototype.forEach.call(forms, function(form){
+              if (form.__gtm_instrumented) return; // idempotent
+              form.addEventListener('submit', function(e){
+                try{
+                  var ev = form.getAttribute('data-gtm-event') || 'form_submit';
+                  var value = form.getAttribute('data-gtm-value');
+                  var payload = {
+                    formId: form.id || form.getAttribute('name') || null,
+                    formAction: form.action || null
+                  };
+                  if (value) payload.value = parseFloat(value) || value;
+                  window.analyticsPush(ev, payload);
+                }catch(err){ /* don't block submit */ }
+              }, {passive:true});
+              form.__gtm_instrumented = true;
+            });
+          }catch(e){ /* ignore */ }
+        }
+
+        // Run on DOMContentLoaded and also in case forms are added later
+        if (document.readyState === 'loading'){
+          document.addEventListener('DOMContentLoaded', instrumentForms);
+        } else {
+          instrumentForms();
+        }
+
+        // Expose a convenience method to re-scan forms dynamically
+        window.gtmInstrumentForms = instrumentForms;
+
+        // Consent Mode scaffold: set default and update consent state
+        // Usage: window.setConsentDefaults(); window.updateConsent({ad_storage:'granted',analytics_storage:'granted'});
+        window.setConsentDefaults = function(){
+          try{
+            window.dataLayer.push({
+              'event': 'consent_default',
+              'consent': { ad_storage: 'denied', analytics_storage: 'denied' }
+            });
+          }catch(e){ }
+        };
+
+        window.updateConsent = function(consentObj){
+          try{
+            // consentObj example: { ad_storage: 'granted', analytics_storage: 'granted' }
+            window.dataLayer.push({ event: 'consent_update', consent: consentObj });
+          }catch(e){ }
+        };
+
+        // Initialize default consent (safe default)
+        window.setConsentDefaults();
+      })();
+    </script>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-KMZN36W7');</script>
+  <!-- End Google Tag Manager -->
+  <!-- Google tag (gtag.js) event - delayed navigation helper -->
+  <script>
+    // Helper function to delay opening a URL until a gtag event is sent.
+    // Call it in response to an action that should navigate to a URL.
+    function gtagSendEvent(url) {
+      var callback = function () {
+        if (typeof url === 'string') {
+          window.location = url;
+        }
+      };
+      gtag('event', 'attribution_captured', {
+        'event_callback': callback,
+        'event_timeout': 2000,
+        // <event_parameters>
+      });
+      return false;
+    }
+  </script>
+  <!--
+    Note: GA4 / Google Analytics is managed via Google Tag Manager (GTM-KMZN36W7) for this project.
+    Avoid adding a separate gtag.js snippet to prevent duplicate pageviews. If you prefer to use
+    gtag directly, remove/disable the GTM container or update deployment to include your
+    GA4 Measurement ID (G-XXXXXXX) and ensure only one analytics loader is active.
+  -->
+    <!-- Note: AW-specific duplicate gtag removed to avoid double-loading. If you prefer managing GA4/AW via GTM, I can move configs into GTM next. -->
+    <!-- ✅ SEO Meta Tags -->
+  <meta name="description" content="Wise Global Research Services — SEBI registered research analyst providing stock market research, live market news, Nifty & Sensex analysis, intraday tips, and long-term investment insights for Indian investors." />
+  <meta name="keywords" content="stock market research, Nifty, Sensex, intraday tips, share market analysis, stock recommendations, SEBI research analyst, live market news, Wise Global Research" />
+    <meta name="author" content="Wise Global Research Services Pvt Ltd" />
+    <link rel="canonical" href="https://wiseglobalresearch.com/" />
+    <meta name="robots" content="index, follow" />
+    <meta name="google-site-verification" content="SnLAmZfk4F4dzJ2hDippMNEG5tqTw_4VLzCwZIKNPkM" />
+
+    <!-- ✅ Open Graph (Facebook/WhatsApp/LinkedIn) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://wiseglobalresearch.com/" />
+    <meta property="og:title" content="Wise Global Research Services - SEBI Registered Research Analyst" />
+    <meta property="og:description" content="Get SEBI registered expert research, trading strategies, and investment insights. Trusted by thousands of investors and traders in India." />
+    <meta property="og:image" content="https://wiseglobalresearch.com/og-image.jpg" />
+
+    <!-- ✅ Twitter Card Meta -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://wiseglobalresearch.com/" />
+    <meta name="twitter:title" content="Wise Global Research Services - SEBI Registered Research Analyst" />
+    <meta name="twitter:description" content="Get SEBI registered expert research, trading strategies, and investment insights. Trusted by thousands of investors and traders in India." />
+    <meta name="twitter:image" content="https://wiseglobalresearch.com/og-image.jpg" />
+
+    <!-- Structured data: Organization & WebSite with potentialSearchAction -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "name": "Wise Global Research Services",
+          "url": "https://wiseglobalresearch.com/",
+          "logo": "https://wiseglobalresearch.com/og-image.jpg",
+          "sameAs": [
+            "https://www.linkedin.com/company/wise-global-research"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "url": "https://wiseglobalresearch.com/",
+          "name": "Wise Global Research Services",
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://wiseglobalresearch.com/search?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+          }
+        }
+      ]
+    }
+    </script>
+
+  <!-- Preload moved into HeroSection via Helmet to avoid unused preloads on other routes -->
+
+    <!-- ✅ Chart Script for TradingView -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8245732647031940"
+   crossorigin="anonymous"></script>
+  <script type="text/javascript" src="https://s3.tradingview.com/tv.js" defer></script>
+  </head>
+
+  <body class="bg-black text-white">
+    <!-- Ensure early document language & per-route titles/descriptions for scanners before React mounts -->
+    <script>
+      (function(){
+        try{
+          if(!document.documentElement.lang) document.documentElement.lang = 'en';
+          var path = location && location.pathname ? location.pathname.replace(/\/+$/,'') : '/';
+
+          // Per-path metadata mapping. Keep this in sync with src/components/seo-config.js for best results.
+          var metaMap = {
+            '/': {
+              title: 'Wise Global Research — Nifty & Sensex analysis, Stock Recommendations',
+              description: 'SEBI-registered stock market research: live Nifty & Sensex updates, intraday tips, stock recommendations, and futures/options analysis for Indian traders.'
+            },
+            '/contact': {
+              title: 'Contact — Wise Global Research Services',
+              description: 'Contact Wise Global Research Services for enquiries, research subscriptions and support.'
+            },
+            '/services': {
+              title: 'Our Services | Equity, MCX, Options, Research',
+              description: "Explore Wise Global Research's SEBI registered research services: equity, derivatives, MCX, Nifty, Sensex, and more."
+            },
+            '/market-news': {
+              title: 'Market News | Wise Global Research',
+              description: 'Latest market updates, events, and macro developments impacting equity and commodities.'
+            },
+            '/research-reports': {
+              title: 'Research Reports | Equity & MCX',
+              description: 'In-depth equity and commodity research reports to support informed decisions.'
+            },
+            '/vision': {
+              title: 'Vision & Values | Wise Global Research',
+              description: 'Our vision is to empower traders with transparent, data-driven research and robust risk management.'
+            },
+            '/contact': {
+              title: 'Contact — Wise Global Research Services',
+              description: 'Contact Wise Global Research Services for enquiries, research subscriptions and support.'
+            },
+            '/accessibility-statement': {
+              title: 'Accessibility Statement — Wise Global Research Services',
+              description: 'Accessibility statement for Wise Global Research Services, targeting WCAG 2.1 Level AA.'
+            },
+            '/sitemap': {
+              title: 'Sitemap — Wise Global Research',
+              description: 'Sitemap of Wise Global Research website.'
+            },
+            '/privacy': {
+              title: 'Privacy Policy | Wise Global Research',
+              description: 'How we collect, process, and protect your data, aligned with compliance and security standards.'
+            },
+            '/terms': {
+              title: 'Terms & Conditions | Wise Global Research',
+              description: 'Terms of service governing the use of Wise Global Research services and content.'
+            },
+            '/refund': {
+              title: 'Refund & Cancellation Policy',
+              description: 'Refund terms and cancellation policy for subscriptions and advisory services.'
+            },
+            '/client-panel': {
+              title: 'Client Panel — Wise Global',
+              description: 'Manage your subscriptions, research feed, and preferences from the client panel.'
+            },
+            '/SmartCash': { title: 'SmartCash – Premium Equity Cash Service', description: 'Premium cash-segment service for disciplined equity investing and trading.' },
+            '/SmartOptions': { title: 'SmartOptions – Options Strategies', description: 'Premium options strategies for consistent performance and drawdown control.' },
+            '/SmartFuture': { title: 'SmartFuture – Futures Strategies', description: 'Premium futures service with risk-managed directional and hedged trades.' },
+            '/MCXSupreme': { title: 'MCXSupreme – Premium MCX Service', description: 'Premium MCX strategies across bullion, energy, and metals with tight risk.' },
+            '/GalaxyMCX': { title: 'GalaxyMCX – Comprehensive Commodity Service', description: 'Full-spectrum MCX strategies with diversification and risk discipline.' },
+            '/UniversalCash': { title: 'UniversalCash – Multi-Sector Cash Ideas', description: 'Broad-based cash segment ideas across sectors with clear risk levels.' },
+            '/InfinityClub': { title: 'InfinityClub – Exclusive Advisory', description: 'Exclusive advisory program with personalized research and reviews.' }
+          };
+
+          var info = metaMap[path] || metaMap[path.toLowerCase()];
+          if(info){
+            if(info.title) document.title = info.title;
+            try{
+              var desc = document.querySelector('meta[name="description"]');
+              if(desc){ desc.setAttribute('content', info.description || ''); }
+              else{
+                desc = document.createElement('meta');
+                desc.setAttribute('name','description');
+                desc.setAttribute('content', info.description || '');
+                document.head.appendChild(desc);
+              }
+            }catch(e){}
+          }
+        }catch(e){}
+      })();
+    </script>
+    <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe title="Google Tag Manager (noscript)" src="https://www.googletagmanager.com/ns.html?id=GTM-KMZN36W7"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <!-- Ensure third-party injected hidden iframes have an accessible title for scanners -->
+    <script>
+      (function(){
+        try{
+          // After third-party scripts run, some iframes are injected without titles.
+          // Give any hidden iframe a descriptive title so automated scanners (pa11y)
+          // and assistive tech can identify them.
+          function labelHiddenIframes(){
+            var iframes = document.querySelectorAll('iframe');
+            for(var i=0;i<iframes.length;i++){
+              var f = iframes[i];
+              try{
+                var style = window.getComputedStyle(f);
+                var isHidden = (f.getAttribute('aria-hidden') === 'true') || f.hasAttribute('inert') || style.display === 'none' || style.visibility === 'hidden' || f.width == '0' || f.height == '0';
+                if(isHidden){
+                  if(!f.getAttribute('title')) f.setAttribute('title','auxiliary third-party frame');
+                  if(!f.hasAttribute('aria-hidden')) f.setAttribute('aria-hidden','true');
+                }
+              }catch(e){}
+            }
+          }
+          // Run once on DOMContentLoaded and again after a short delay to catch async injections
+          if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', labelHiddenIframes);
+          else labelHiddenIframes();
+          setTimeout(labelHiddenIframes, 2500);
+        }catch(e){}
+      })();
+    </script>
+    <script>
+      // Early apply of saved accessibility settings before React mounts to avoid flashes
+      (function(){
+        try {
+          var raw = localStorage.getItem('a11ySettings');
+          if (!raw) return;
+          var s = JSON.parse(raw);
+          var root = document.documentElement;
+          // font scale
+          var scale = Math.max(0.9, Math.min(1.8, parseFloat((s.fontScale||1)*1)));
+          root.style.fontSize = (scale * 100) + '%';
+          // boolean data attrs
+          function setAttr(name, val){ if (val) root.setAttribute(name, 'true'); }
+          setAttr('data-high-contrast', !!s.highContrast);
+          setAttr('data-reduce-motion', !!s.reduceMotion);
+          setAttr('data-highlight-links', !!s.highlightLinks);
+          setAttr('data-readable-font', !!s.readableFont);
+          setAttr('data-grayscale', !!s.grayscale);
+          setAttr('data-invert', !!s.invert);
+          if (s.lineHeight === 'relaxed') root.setAttribute('data-line-height', 'relaxed');
+        } catch(e) { /* ignore */ }
+      })();
+    </script>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+  </body>
+</html>

@@ -1,0 +1,17 @@
+/* Floating speaker show/hide animation */
+.floating-speaker-anim {
+  animation: speaker-flash 10s linear infinite;
+}
+
+@keyframes speaker-flash {
+  0% { opacity: 1; visibility: visible; }
+  40% { opacity: 1; visibility: visible; }
+  50% { opacity: 0; visibility: hidden; }
+  90% { opacity: 0; visibility: hidden; }
+  100% { opacity: 1; visibility: visible; }
+}
+
+/* Improve accessibility by reducing motion for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .floating-speaker-anim { animation: none; }
+}

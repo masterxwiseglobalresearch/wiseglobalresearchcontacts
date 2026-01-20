@@ -1,0 +1,534 @@
+/* ✅ Logo 360-degree Landscape Rotation on Hover */
+@keyframes logo-rotate-landscape {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+.logo-rotate-hover:hover {
+  transform: rotate(360deg);
+  animation: logo-rotate-landscape 0.8s linear;
+}
+/* ✅ Softer Floating Animation for Footer Logo */
+@keyframes float-soft {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+.animate-float-soft {
+  animation: float-soft 3s ease-in-out infinite;
+}
+/* 🌀 Tailwind Directives */
+/* Tailwind is used in this project — these must be enabled so utility classes work. */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ✅ Global Font + Background */
+html {
+  /* Ensure the base page background is white so transparent body never shows dark */
+  background: var(--bg-surface, #fff);
+  overflow-x: hidden;
+  overscroll-behavior-y: none; /* prevent rubber-band revealing UA background */
+  /* Add cross-browser text size adjust to satisfy audit */
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+body {
+  font-family: 'Josefin Sans', sans-serif;
+  /* Keep white background at the document level */
+  background: var(--bg-surface, #fff);
+  /* Default text color: dark for readability on white background; theme can override */
+  color: var(--text-body, #0b1220);
+  margin: 0;
+  overflow-x: hidden;
+  /* Prevents odd extra vertical scrolling from off-screen transforms */
+  overflow-y: auto;
+  overscroll-behavior-y: none;
+}
+
+/* Ensure React root also paints dark background and fills screen */
+html, body, #root { min-height: 100%; }
+#root { background: var(--bg-surface, #fff); }
+
+/* Accessible focus outline */
+:focus-visible {
+  outline: 3px solid var(--accent, #22c55e);
+  outline-offset: 2px;
+}
+
+/* Skip link styles
+   - Hidden off-screen by default (preserves access for screen readers)
+   - Becomes visible when focused or active so keyboard users can see it
+   - Uses transform instead of top to avoid layout shifts
+*/
+.skip-link {
+  position: absolute;
+  left: 8px;
+  top: 8px; /* keep logical top for placement when visible */
+  transform: translateY(-200%); /* move off-screen visually */
+  background: #111827;
+  color: #fff;
+  padding: 10px 14px;
+  font-size: 0.95rem;
+  z-index: 10000;
+  border-radius: 6px;
+  transition: transform 0.18s ease, opacity 0.18s ease;
+  opacity: 0;
+  pointer-events: none; /* prevent accidental mouse interactions when hidden */
+}
+
+/* Reveal when focused (keyboard) or active (some browsers) */
+.skip-link:focus,
+.skip-link:active {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .skip-link { transition: none; }
+}
+
+/* Make skip link larger on small/mobile screens so it's easy to read */
+@media (max-width: 640px) {
+  .skip-link {
+    font-size: 1.1rem; /* larger on small screens */
+    padding: 14px 18px;
+    left: 14px;
+    border-radius: 10px;
+  }
+}
+
+/* ✅ Responsive Container Helpers */
+.container {
+  max-width: 1280px; /* Equivalent to max-w-screen-xl */
+  margin-left: auto;  /* Equivalent to mx-auto */
+  margin-right: auto;
+  padding-left: 1rem; /* Equivalent to px-4 */
+  padding-right: 1rem;
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding-left: 1.5rem; /* Equivalent to md:px-6 */
+    padding-right: 1.5rem;
+  }
+}
+
+/* ✅ Floating Animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* ✅ Shine Button Hover */
+.shine-hover {
+  position: relative;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  border-radius: 9999px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+.shine-hover:hover {
+  transform: scale(1.1);
+  box-shadow:
+    0 0 25px rgba(255, 255, 255, 0.6),
+    0 0 45px rgba(255, 255, 255, 0.2),
+    inset 0 0 12px rgba(255, 255, 255, 0.3);
+}
+.shine-hover::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
+  transform: rotate(0deg);
+  opacity: 0;
+  pointer-events: none;
+  border-radius: 9999px;
+  transition: opacity 0.4s ease-in-out;
+  z-index: 1;
+}
+.shine-hover:hover::after {
+  animation: shine-spin 2s linear infinite;
+  opacity: 0.3;
+}
+
+/* ✅ Shine Spin Animation */
+@keyframes shine-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ✅ Smooth Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 6px;
+}
+
+/* ✅ Horizontal scroll helper for mobile tables */
+.h-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch; /* momentum scroll on iOS */
+  overscroll-behavior-x: contain;
+}
+
+/* ✅ Blurred background for components */
+.custom-box-bg {
+  /* subtle translucent panel for both dark and light backgrounds */
+  background: var(--bg-muted, rgba(255, 255, 255, 0.06));
+  /* Place -webkit- prefixed backdrop filter before the standard property */
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--navbar-border, rgba(255, 255, 255, 0.08));
+  box-shadow: var(--card-shadow, 0 8px 24px rgba(0, 0, 0, 0.3));
+}
+
+/* ✅ Background for dark sections */
+.bg-gradient-dark {
+  /* darker gradient so light text remains readable */
+  background: linear-gradient(135deg, rgba(2,6,23,0.95) 0%, rgba(15,23,42,0.95) 100%);
+}
+
+/* ✅ Scroll To Top */
+.scroll-to-top-btn {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 999;
+  background-color: #22c55e;
+  color: white;
+  border-radius: 9999px;
+  padding: 0.75rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+.scroll-to-top-btn:hover {
+  background-color: #16a34a;
+  transform: scale(1.1);
+}
+
+/* ✅ Alert Bar Marquee */
+@keyframes scrollText {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+.animate-scroll {
+  display: inline-block;
+  white-space: nowrap;
+  animation: scrollText 60s linear infinite;
+}
+
+/* ✅ Footer Reveal */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.footer-animated {
+  animation: fadeInUp 1s ease-in-out;
+}
+
+/* ✅ Text Reveal */
+@keyframes textReveal {
+  0% {
+    opacity: 0;
+    clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+  }
+  100% {
+    opacity: 1;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+}
+
+/* Toastify color overrides to ensure sufficient contrast for success toasts */
+:root {
+  --toastify-color-success: #0b8a05; /* slightly darker green for contrast */
+}
+
+/* Ensure Toastify success toasts have a solid, high-contrast background and white text */
+.Toastify__toast--success {
+  background: #0b8a05 !important;
+  color: #ffffff !important;
+}
+.Toastify__toast--success .Toastify__toast-body,
+.Toastify__toast--success .Toastify__close-button {
+  color: #ffffff !important;
+}
+
+/* ✅ Responsive Fixes for Landscape & Portrait */
+@media screen and (orientation: landscape) {
+  body {
+    font-size: 0.95rem;
+  }
+  .floating-buttons {
+    bottom: 1rem;
+  }
+}
+
+@media screen and (orientation: portrait) {
+  body {
+    font-size: 1rem;
+  }
+}
+/* "css.lint.unknownAtRules": */
+
+/* Hide Google Translate Header (keep only the banner-rule) */
+.goog-te-banner-frame.skiptranslate {
+  display: none !important;
+}
+
+/* NOTE: avoid forcing global `top` on body — it can conflict with layout and mobile
+   chrome; if you added it to work around a specific translation widget, scope it
+   to that container instead. */
+
+
+/* ===== Accessibility Global Toggles ===== */
+/* Reduce motion toggle via data attribute applied on <html> by A11yControls */
+html[data-reduce-motion="true"] * {
+  animation: none !important;
+  transition: none !important;
+  scroll-behavior: auto !important;
+}
+
+/* High contrast mode toggle via data attribute */
+html[data-high-contrast="true"] {
+  color: #000 !important;
+  background-color: #fff !important;
+}
+html[data-high-contrast="true"] *:focus-visible {
+  outline: 3px solid #000 !important;
+}
+/* Ensure links/buttons remain clear and discernible in HC mode */
+html[data-high-contrast="true"] a[href] {
+  color: #000 !important;
+  text-decoration: underline !important;
+}
+html[data-high-contrast="true"] button,
+html[data-high-contrast="true"] [role="button"] {
+  background: #fff !important;
+  color: #000 !important;
+  border: 2px solid #000 !important;
+}
+/* Nudge some common utility colors for better contrast in HC mode */
+html[data-high-contrast="true"] .text-gray-400,
+html[data-high-contrast="true"] .text-gray-500,
+html[data-high-contrast="true"] .text-gray-600 { color: #111 !important; }
+html[data-high-contrast="true"] .text-white { color: #000 !important; }
+html[data-high-contrast="true"] .bg-white\/20 { background-color: rgba(0,0,0,0.08) !important; }
+html[data-high-contrast="true"] .bg-white\/90 { background-color: rgba(255,255,255,1) !important; }
+html[data-high-contrast="true"] .bg-blue-600 { background-color: #003366 !important; }
+html[data-high-contrast="true"] .bg-gray-800 { background-color: #111 !important; }
+
+/* Highlight links when requested */
+html[data-highlight-links="true"] a[href] {
+  outline: 2px dashed #22c55e !important;
+  outline-offset: 2px !important;
+}
+html[data-highlight-links="true"] a[href]:focus-visible {
+  outline-width: 3px !important;
+}
+
+/* Readable font (prefer system UI / open dyslexic if present) */
+@font-face {
+  font-family: 'OpenDyslexic';
+  src: local('OpenDyslexic'), local('OpenDyslexic-Regular');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+html[data-readable-font="true"] body,
+html[data-readable-font="true"] * {
+  font-family: 'OpenDyslexic', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif !important;
+}
+
+/* Page-wide filters */
+html[data-grayscale="true"] body { filter: grayscale(100%); }
+html[data-invert="true"] body { filter: invert(100%) hue-rotate(180deg); }
+/* If both invert and grayscale are on, combine reasonably */
+html[data-invert="true"][data-grayscale="true"] body { filter: invert(100%) hue-rotate(180deg) grayscale(100%); }
+
+/* Line height */
+html[data-line-height="relaxed"] body, html[data-line-height="relaxed"] * { line-height: 1.7 !important; }
+
+/* Screen-reader only utility */
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/* Adaptive helpers: prefer CSS variables so text and backgrounds remain readable
+  when switching between dark and light theme backgrounds. Use these classes
+  on components that currently assume white text. */
+.text-adaptive { color: var(--text-body) !important; }
+.bg-adaptive { background: var(--bg-surface) !important; }
+
+/*
+  Conservative accessibility overrides:
+  - When the ThemeProvider marks the document as a non-light theme (dark/bg in use),
+    ensure common dark-text utilities and inline dark color values adopt the
+    adaptive `--text-body` color so contrast remains sufficient on dark backgrounds.
+  - We narrowly target utility class `text-gray-800` and inline styles that use
+    the project's common dark hex `#0b1220` or equivalent rgb to avoid broad
+    global overrides.
+*/
+html:not([data-theme-light="true"]) .text-gray-800 {
+  color: var(--text-body) !important;
+}
+html:not([data-theme-light="true"]) [style*="color: #0b1220"] {
+  color: var(--text-body) !important;
+}
+html:not([data-theme-light="true"]) [style*="color: rgb(11, 18, 32)"] {
+  color: var(--text-body) !important;
+}
+
+/* Ensure utility classes that explicitly set white text don't break on light
+  backgrounds: provide a fallback when the computed --text-body is dark. We use
+  a data attribute `data-theme-light="true"` which the ThemeProvider may set
+  if a light background is active (optional). */
+html[data-theme-light="true"] .text-white { color: #0b1220 !important; }
+html[data-theme-light="true"] .bg-white { background-color: #ffffff !important; }
+
+/* Ensure native select/option elements remain readable across themes.
+   Some browsers allow limited styling of option elements; provide a
+   high-contrast fallback so automated tools and UA styles report good
+   contrast for commonly used combos. This rule increases contrast for
+   option elements inside selects used site-wide. */
+select, select option {
+  background-color: #ffffff !important;
+  color: #0b1220 !important;
+}
+
+/* On small screens the floating controls/panel can overlap the navbar logo.
+   Only hide the navbar logo and the speaker controls on narrow viewports so
+   desktop users keep the visible logo when opening these panels. */
+@media (max-width: 768px) {
+  /* Keep navbar logo visible on mobile even when panels open. */
+
+  /* Explicitly ensure logo is visible when accessibility or announcer flags exist.
+     This prevents older compiled CSS or third-party styles from hiding the image. */
+  body[data-accessibility-open="true"] .logo-hover,
+  body[data-route-announcer-open="true"] .logo-hover {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+  }
+
+
+  /* Also hide the floating speaker controls when accessibility menu is open on mobile */
+  body[data-accessibility-open="true"] .route-announcer-floating,
+  body[data-accessibility-open="true"] .route-announcer-panel {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+  }
+}
+
+/* When accessibility menu is flagged as mobile, make the panel cover full width at bottom like a sheet */
+body[data-accessibility-mobile="true"] #accessibility-menu-panel {
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: 100% !important;
+  max-width: 100vw !important;
+  border-radius: 1rem 1rem 0 0 !important;
+}
+
+/* ===== Global Responsive Helpers ===== */
+/* Fluid type scale: clamps between small and large screens */
+html { --fluid-type: clamp(1rem, 1rem + 0.7vw, 1.125rem); }
+body { font-size: var(--fluid-type); }
+
+/* Ensure images and media scale within their container */
+img, picture, video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Responsive embed helper for iframes and charts */
+.responsive-embed {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+}
+.responsive-embed iframe,
+.responsive-embed embed,
+.responsive-embed object,
+.responsive-embed video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Constrain long code or table content and allow horizontal scroll on small devices */
+pre, code, table {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Consistent page paddings for small screens */
+.page-pad { padding-left: 12px; padding-right: 12px; }
+@media (min-width: 640px) { .page-pad { padding-left: 16px; padding-right: 16px; } }
+@media (min-width: 1024px) { .page-pad { padding-left: 24px; padding-right: 24px; } }
+
+/* Utility to visually cap content width on very large screens while keeping readable line-length */
+.content-cap { max-width: 760px; margin-left: auto; margin-right: auto; }
+
+/* Small-screen specific touch target improvements */
+@media (max-width: 480px) {
+  button, a.button {
+    padding: 12px 14px;
+    font-size: 1rem;
+  }
+}
+
+/* Prevent auto-zoom on input focus for older mobile browsers by ensuring
+   inputs/selects/textareas have at least 16px font-size on small screens. */
+@media (max-width: 480px) {
+  input, textarea, select {
+    font-size: 16px !important;
+    -webkit-text-size-adjust: 100%;
+  }
+}
+
+
+

@@ -1,0 +1,292 @@
+[
+  {
+    "code": "WCAG2AA.Principle2.Guideline2_4.2_4_1.H64.1",
+    "type": "error",
+    "typeCode": 1,
+    "message": "Iframe element requires a non-empty title attribute that identifies the frame.",
+    "context": "<iframe height=\"0\" width=\"0\" style=\"display: none; visibility: hidden;\"></iframe>",
+    "selector": "html > body > iframe:nth-child(4)",
+    "runner": "htmlcs",
+    "runnerExtras": {}
+  },
+  {
+    "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Fail",
+    "type": "error",
+    "typeCode": 1,
+    "message": "This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 1.6:1. Recommendation:  change background to #028a00.",
+    "context": "<span class=\"ra-label\" style=\"font-size: 15px; opacity: 0; transform: translateX(-6px); transition: opacity 160ms ease 0s, transform 160ms ease 0s;\">Route Announcer</span>",
+    "selector": "#root > div:nth-child(2) > button > span > span:nth-child(2)",
+    "runner": "htmlcs",
+    "runnerExtras": {}
+  },
+  {
+    "code": "WCAG2AA.Principle4.Guideline4_1.4_1_2.H91.InputText.Name",
+    "type": "error",
+    "typeCode": 1,
+    "message": "This textinput element does not have a name available to an accessibility API. Valid names are: label element, title undefined, aria-label undefined, aria-labelledby undefined.",
+    "context": "<input type=\"text\" name=\"website\" tabindex=\"-1\" autocomplete=\"off\" class=\"hidden\" value=\"\">",
+    "selector": "#main-content > div > div > div > form > input",
+    "runner": "htmlcs",
+    "runnerExtras": {}
+  },
+  {
+    "code": "WCAG2AA.Principle1.Guideline1_3.1_3_1.F68",
+    "type": "error",
+    "typeCode": 1,
+    "message": "This form field should be labelled in some way. Use the label element (either with a \"for\" attribute or wrapped around the form field), or \"title\", \"aria-label\" or \"aria-labelledby\" attributes as appropriate.",
+    "context": "<input type=\"text\" name=\"website\" tabindex=\"-1\" autocomplete=\"off\" class=\"hidden\" value=\"\">",
+    "selector": "#main-content > div > div > div > form > input",
+    "runner": "htmlcs",
+    "runnerExtras": {}
+  },
+  {
+    "code": "WCAG2AA.Principle4.Guideline4_1.4_1_2.H91.InputText.Name",
+    "type": "error",
+    "typeCode": 1,
+    "message": "This textinput element does not have a name available to an accessibility API. Valid names are: label element, title undefined, aria-label undefined, aria-labelledby undefined.",
+    "context": "<input type=\"text\" name=\"name\" placeholder=\"Full Name\" required=\"\" class=\"w-full p-3 pl-10 bg-white border-b-2 border-gray-300 text-gray-800 outline-none placeholder-gray-400 focus:border-blue-500 transition-colors\" value=\"\">",
+    "selector": "#main-content > div > div > div > form > div:nth-child(2) > input",
+    "runner": "htmlcs",
+    "runnerExtras": {}
+  },
+  {
+    "code": "WCAG2AA.Principle1.Guideline1_3.1_3_1.F68",
+    "type": "error",
+    "typeCode": 1,
+    "message": "This form field should be labelled in some way. Use the label element (either with a \"for\" attribute or wrapped around the form field), or \"title\", \"aria-label\" or \"aria-labelledby\" attributes as appropriate.",
+    "context": "<input type=\"text\" name=\"name\" placeholder=\"Full Name\" required=\"\" class=\"w-full p-3 pl-10 bg-white border-b-2 border-gray-300 text-gray-800 outline-none placeholder-gray-400 focus:border-blue-500 transition-colors\" value=\"\">",
+    "selector": "#main-content > div > div > div > form > div:nth-child(2) > input",
+    "runner": "htmlcs",
+    "runnerExtras": {}
+  },
+  {
+    "code": "WCAG2AA.Principle4.Guideline4_1.4_1_2.H91.InputEmail.Name",
+    "type": "error",
+    "typeCode": 1,
+    "message": "This emailinput element does not have a name available to an accessibility API. Valid names are: label element, title undefined, aria-label undefined, aria-labelledby undefined.",
+    "context": "<input type=\"email\" name=\"email\" placeholder=\"Email Address\" required=\"\" class=\"w-full p-3 pl-10 bg-white border-b-2 border-gray-300 text-gray-800 outline-none placeholder-gray-400 focus:border-blue-500 transition-colors\" value=\"\">",
+    "selector": "#main-content > div > div > div > form > div:nth-child(3) > input",
+    "runner": "htmlcs",
+    "runnerExtras": {}
+  },
+  {
+    "code": "WCAG2AA.Principle4.Guideline4_1.4_1_2.H91.InputTel.Name",
+    "type": "error",
+    "typeCode": 1,
+    "message": "This telinput element does not have a name available to an accessibility API. Valid names are: label element, title undefined, aria-label undefined, aria-labelledby undefined.",
+    "context": "<input type=\"tel\" name=\"phone\" placeholder=\"Phone Number\" required=\"\" class=\"w-full p-3 pl-10 bg-white border-b-2 border-gray-300 text-gray-800 outline-none placeholder-gray-400 focus:border-blue-500 transition-colors\" value=\"\">",
+    "selector": "#main-content > div > div > div > form > div:nth-child(4) > input",
+    "runner": "htmlcs",
+    "runnerExtras": {}
+  },
+  {
+    "code": "WCAG2AA.Principle4.Guideline4_1.4_1_2.H91.Textarea.Name",
+    "type": "error",
+    "typeCode": 1,
+    "message": "This textarea element does not have a name available to an accessibility API. Valid names are: label element, title undefined, aria-label undefined, aria-labelledby undefined.",
+    "context": "<textarea name=\"message\" placeholder=\"Your Message...\" rows=\"4\" required=\"\" class=\"w-full p-3 pl-10 bg-white border-2 border-gray-300 text-gray-800 outline-none rounded-lg placeholder-gray-400 focus:border-blue-500 transition-colors\"></textarea>",
+    "selector": "#main-content > div > div > div > form > div:nth-child(5) > textarea",
+    "runner": "htmlcs",
+    "runnerExtras": {}
+  },
+  {
+    "code": "WCAG2AA.Principle1.Guideline1_3.1_3_1.F68",
+    "type": "error",
+    "typeCode": 1,
+    "message": "This form field should be labelled in some way. Use the label element (either with a \"for\" attribute or wrapped around the form field), or \"title\", \"aria-label\" or \"aria-labelledby\" attributes as appropriate.",
+    "context": "<textarea name=\"message\" placeholder=\"Your Message...\" rows=\"4\" required=\"\" class=\"w-full p-3 pl-10 bg-white border-2 border-gray-300 text-gray-800 outline-none rounded-lg placeholder-gray-400 focus:border-blue-500 transition-colors\"></textarea>",
+    "selector": "#main-content > div > div > div > form > div:nth-child(5) > textarea",
+    "runner": "htmlcs",
+    "runnerExtras": {}
+  },
+  {
+    "code": "WCAG2AA.Principle4.Guideline4_1.4_1_2.H91.A.NoContent",
+    "type": "error",
+    "typeCode": 1,
+    "message": "Anchor element found with a valid href attribute, but no link content has been supplied.",
+    "context": "<a href=\"https://facebook.com\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-xl text-gray-400 hover:text-blue-600 transition-colors duration-300\"><svg stroke=\"currentColor\" fill...</a>",
+    "selector": "#main-content > div > div > div > form > div:nth-child(7) > a:nth-child(1)",
+    "runner": "htmlcs",
+    "runnerExtras": {}
+  },
+  {
+    "code": "WCAG2AA.Principle4.Guideline4_1.4_1_2.H91.A.NoContent",
+    "type": "error",
+    "typeCode": 1,
+    "message": "Anchor element found with a valid href attribute, but no link content has been supplied.",
+    "context": "<a href=\"https://instagram.com\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-xl text-gray-400 hover:text-pink-500 transition-colors duration-300\"><svg stroke=\"currentColor\" fill...</a>",
+    "selector": "#main-content > div > div > div > form > div:nth-child(7) > a:nth-child(2)",
+    "runner": "htmlcs",
+    "runnerExtras": {}
+  },
+  {
+    "code": "WCAG2AA.Principle4.Guideline4_1.4_1_2.H91.A.NoContent",
+    "type": "error",
+    "typeCode": 1,
+    "message": "Anchor element found with a valid href attribute, but no link content has been supplied.",
+    "context": "<a href=\"https://twitter.com\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-xl text-gray-400 hover:text-sky-500 transition-colors duration-300\"><svg stroke=\"currentColor\" fill...</a>",
+    "selector": "#main-content > div > div > div > form > div:nth-child(7) > a:nth-child(3)",
+    "runner": "htmlcs",
+    "runnerExtras": {}
+  },
+  {
+    "code": "WCAG2AA.Principle4.Guideline4_1.4_1_2.H91.A.NoContent",
+    "type": "error",
+    "typeCode": 1,
+    "message": "Anchor element found with a valid href attribute, but no link content has been supplied.",
+    "context": "<a href=\"https://linkedin.com\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-xl text-gray-400 hover:text-blue-800 transition-colors duration-300\"><svg stroke=\"currentColor\" fill...</a>",
+    "selector": "#main-content > div > div > div > form > div:nth-child(7) > a:nth-child(4)",
+    "runner": "htmlcs",
+    "runnerExtras": {}
+  },
+  {
+    "code": "WCAG2AA.Principle4.Guideline4_1.4_1_2.H91.A.NoContent",
+    "type": "error",
+    "typeCode": 1,
+    "message": "Anchor element found with a valid href attribute, but no link content has been supplied.",
+    "context": "<a href=\"https://youtube.com\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-xl text-gray-400 hover:text-red-600 transition-colors duration-300\"><svg stroke=\"currentColor\" fill...</a>",
+    "selector": "#main-content > div > div > div > form > div:nth-child(7) > a:nth-child(5)",
+    "runner": "htmlcs",
+    "runnerExtras": {}
+  },
+  {
+    "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Fail",
+    "type": "error",
+    "typeCode": 1,
+    "message": "This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 3.98:1. Recommendation:  change background to #2a73e1.",
+    "context": "<div class=\"text-center text-xs py-2 px-2 break-words\" style=\"background: var(--footer-bottom-bg, #347deb); color: var(--footer-color, #000000ff);\">Copyright 2024, Wise Global Res...</div>",
+    "selector": "#root > div:nth-child(3) > div > div:nth-child(8)",
+    "runner": "htmlcs",
+    "runnerExtras": {}
+  },
+  {
+    "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Fail",
+    "type": "error",
+    "typeCode": 1,
+    "message": "This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 4.5:1, but text in this element has a contrast ratio of 2.6:1. Recommendation:  change background to #0a53c1.",
+    "context": "<a href=\"https://mrxads.com\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-yellow-400 underline\">MRXADS</a>",
+    "selector": "#root > div:nth-child(3) > div > div:nth-child(8) > a",
+    "runner": "htmlcs",
+    "runnerExtras": {}
+  },
+  {
+    "code": "WCAG2AA.Principle3.Guideline3_2.3_2_2.H32.2",
+    "type": "error",
+    "typeCode": 1,
+    "message": "This form does not contain a submit button, which creates issues for those who cannot submit the form using the keyboard. Submit buttons are INPUT elements with type attribute \"submit\" or \"image\", or BUTTON elements with type \"submit\" or omitted/invalid.",
+    "context": "<form id=\"goog-gt-votingForm\" action=\"//translate.googleapis.com/translate_voting?client=te\" method=\"post\" target=\"votingFrame\" class=\"VIpgJd-yAWNEb-hvhgNd-aXYTce\"><input type=\"text\" name=\"sl\" id...</form>",
+    "selector": "#goog-gt-votingForm",
+    "runner": "htmlcs",
+    "runnerExtras": {}
+  },
+  {
+    "code": "WCAG2AA.Principle4.Guideline4_1.4_1_2.H91.InputText.Name",
+    "type": "error",
+    "typeCode": 1,
+    "message": "This textinput element does not have a name available to an accessibility API. Valid names are: label element, title undefined, aria-label undefined, aria-labelledby undefined.",
+    "context": "<input type=\"text\" name=\"sl\" id=\"goog-gt-votingInputSrcLang\">",
+    "selector": "#goog-gt-votingInputSrcLang",
+    "runner": "htmlcs",
+    "runnerExtras": {}
+  },
+  {
+    "code": "WCAG2AA.Principle1.Guideline1_3.1_3_1.F68",
+    "type": "error",
+    "typeCode": 1,
+    "message": "This form field should be labelled in some way. Use the label element (either with a \"for\" attribute or wrapped around the form field), or \"title\", \"aria-label\" or \"aria-labelledby\" attributes as appropriate.",
+    "context": "<input type=\"text\" name=\"sl\" id=\"goog-gt-votingInputSrcLang\">",
+    "selector": "#goog-gt-votingInputSrcLang",
+    "runner": "htmlcs",
+    "runnerExtras": {}
+  },
+  {
+    "code": "WCAG2AA.Principle4.Guideline4_1.4_1_2.H91.InputText.Name",
+    "type": "error",
+    "typeCode": 1,
+    "message": "This textinput element does not have a name available to an accessibility API. Valid names are: label element, title undefined, aria-label undefined, aria-labelledby undefined.",
+    "context": "<input type=\"text\" name=\"tl\" id=\"goog-gt-votingInputTrgLang\">",
+    "selector": "#goog-gt-votingInputTrgLang",
+    "runner": "htmlcs",
+    "runnerExtras": {}
+  },
+  {
+    "code": "WCAG2AA.Principle1.Guideline1_3.1_3_1.F68",
+    "type": "error",
+    "typeCode": 1,
+    "message": "This form field should be labelled in some way. Use the label element (either with a \"for\" attribute or wrapped around the form field), or \"title\", \"aria-label\" or \"aria-labelledby\" attributes as appropriate.",
+    "context": "<input type=\"text\" name=\"tl\" id=\"goog-gt-votingInputTrgLang\">",
+    "selector": "#goog-gt-votingInputTrgLang",
+    "runner": "htmlcs",
+    "runnerExtras": {}
+  },
+  {
+    "code": "WCAG2AA.Principle4.Guideline4_1.4_1_2.H91.InputText.Name",
+    "type": "error",
+    "typeCode": 1,
+    "message": "This textinput element does not have a name available to an accessibility API. Valid names are: label element, title undefined, aria-label undefined, aria-labelledby undefined.",
+    "context": "<input type=\"text\" name=\"query\" id=\"goog-gt-votingInputSrcText\">",
+    "selector": "#goog-gt-votingInputSrcText",
+    "runner": "htmlcs",
+    "runnerExtras": {}
+  },
+  {
+    "code": "WCAG2AA.Principle1.Guideline1_3.1_3_1.F68",
+    "type": "error",
+    "typeCode": 1,
+    "message": "This form field should be labelled in some way. Use the label element (either with a \"for\" attribute or wrapped around the form field), or \"title\", \"aria-label\" or \"aria-labelledby\" attributes as appropriate.",
+    "context": "<input type=\"text\" name=\"query\" id=\"goog-gt-votingInputSrcText\">",
+    "selector": "#goog-gt-votingInputSrcText",
+    "runner": "htmlcs",
+    "runnerExtras": {}
+  },
+  {
+    "code": "WCAG2AA.Principle4.Guideline4_1.4_1_2.H91.InputText.Name",
+    "type": "error",
+    "typeCode": 1,
+    "message": "This textinput element does not have a name available to an accessibility API. Valid names are: label element, title undefined, aria-label undefined, aria-labelledby undefined.",
+    "context": "<input type=\"text\" name=\"gtrans\" id=\"goog-gt-votingInputTrgText\">",
+    "selector": "#goog-gt-votingInputTrgText",
+    "runner": "htmlcs",
+    "runnerExtras": {}
+  },
+  {
+    "code": "WCAG2AA.Principle1.Guideline1_3.1_3_1.F68",
+    "type": "error",
+    "typeCode": 1,
+    "message": "This form field should be labelled in some way. Use the label element (either with a \"for\" attribute or wrapped around the form field), or \"title\", \"aria-label\" or \"aria-labelledby\" attributes as appropriate.",
+    "context": "<input type=\"text\" name=\"gtrans\" id=\"goog-gt-votingInputTrgText\">",
+    "selector": "#goog-gt-votingInputTrgText",
+    "runner": "htmlcs",
+    "runnerExtras": {}
+  },
+  {
+    "code": "WCAG2AA.Principle4.Guideline4_1.4_1_2.H91.InputText.Name",
+    "type": "error",
+    "typeCode": 1,
+    "message": "This textinput element does not have a name available to an accessibility API. Valid names are: label element, title undefined, aria-label undefined, aria-labelledby undefined.",
+    "context": "<input type=\"text\" name=\"vote\" id=\"goog-gt-votingInputVote\">",
+    "selector": "#goog-gt-votingInputVote",
+    "runner": "htmlcs",
+    "runnerExtras": {}
+  },
+  {
+    "code": "WCAG2AA.Principle1.Guideline1_3.1_3_1.F68",
+    "type": "error",
+    "typeCode": 1,
+    "message": "This form field should be labelled in some way. Use the label element (either with a \"for\" attribute or wrapped around the form field), or \"title\", \"aria-label\" or \"aria-labelledby\" attributes as appropriate.",
+    "context": "<input type=\"text\" name=\"vote\" id=\"goog-gt-votingInputVote\">",
+    "selector": "#goog-gt-votingInputVote",
+    "runner": "htmlcs",
+    "runnerExtras": {}
+  },
+  {
+    "code": "WCAG2AA.Principle2.Guideline2_4.2_4_1.H64.1",
+    "type": "error",
+    "typeCode": 1,
+    "message": "Iframe element requires a non-empty title attribute that identifies the frame.",
+    "context": "<iframe name=\"votingFrame\" frameborder=\"0\"></iframe>",
+    "selector": "#goog-gt-votingHiddenPane > iframe",
+    "runner": "htmlcs",
+    "runnerExtras": {}
+  }
+]

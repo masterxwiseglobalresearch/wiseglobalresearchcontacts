@@ -1,0 +1,134 @@
+/* Admin panel specific styles (uses CSS variables from ThemeContext) */
+:root {
+  --admin-sidebar-width: 16rem; /* 256px */
+}
+
+.admin-header {
+  background: var(--bg-transparent, rgba(255,255,255,0.06));
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--navbar-border, rgba(255,255,255,0.06));
+  color: var(--text-body, #fff);
+}
+
+.admin-header .toggle-btn {
+  color: var(--text-body, #fff);
+}
+
+.admin-sidebar-wrapper {
+  width: var(--admin-sidebar-width);
+  min-width: var(--admin-sidebar-width);
+  max-width: 80vw;
+}
+
+.admin-sidebar-wrapper a {
+  color: #000 !important; /* Force black text/icons in sidebar links */
+}
+.admin-sidebar-wrapper a:focus-visible {
+  outline: 3px solid var(--accent, #22c55e);
+  outline-offset: 2px;
+}
+
+.admin-main {
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0));
+}
+
+@media (max-width: 767px) {
+  .admin-sidebar-wrapper {
+    width: 85vw;
+    min-width: 85vw;
+    max-width: 85vw;
+    border-radius: 0 12px 12px 0;
+  }
+  .admin-header { padding-left: 12px; padding-right: 12px; }
+}
+
+.admin-container, .admin-main, .admin-sidebar-wrapper, .admin-header { color: var(--text-body); }
+
+.admin-overlay-backdrop { background: rgba(2,6,23,0.6); }
+
+/* Responsive admin content utilities */
+.admin-container .admin-main .admin-section {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 12px;
+  background: var(--bg-muted, rgba(255,255,255,0.02));
+  border: 1px solid var(--bg-border, rgba(255,255,255,0.06));
+}
+
+/* Cards grid: stacks on mobile, grid on larger screens */
+.admin-cards-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+@media (min-width: 640px) {
+  .admin-cards-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 1024px) {
+  .admin-cards-grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* Responsive tables: horizontal scroll on small screens, full-width on desktop */
+.admin-container table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.admin-container .table-responsive { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.admin-container table th,
+.admin-container table td { padding: 0.5rem 0.75rem; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.04); }
+.admin-container table thead th { font-weight: 600; }
+
+/* Form controls: full-width on mobile */
+.admin-container input[type="text"],
+.admin-container input[type="email"],
+.admin-container textarea,
+.admin-container select {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  border: 1px solid var(--bg-border, rgba(255,255,255,0.06));
+  background: var(--bg-surface);
+  color: var(--text-body);
+}
+
+/* Buttons in admin should expand on mobile and be consistent */
+.admin-container .admin-actions { display:flex; gap:0.5rem; flex-wrap:wrap; }
+.admin-container .admin-actions .btn { flex: 1 1 auto; min-width: 120px; }
+
+/* Compact list items for mobile */
+.admin-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.5rem; }
+.admin-list li { padding: 0.75rem; border-radius: 8px; background: var(--bg-surface); border: 1px solid var(--bg-border); }
+
+/* Make large panels scrollable on small screens without breaking layout */
+.admin-scrollable { max-height: 64vh; overflow: auto; }
+
+/* Improve small-screen spacing inside admin main */
+@media (max-width: 639px) {
+  .admin-container .admin-main { padding: 12px; }
+  .admin-header { padding: 0.75rem; }
+}
+
+/* Stackable tables for small screens */
+.stack-table { width: 100%; border-collapse: collapse; }
+.stack-table thead { display: table-header-group; }
+.stack-table tbody tr { background: inherit; }
+
+@media (max-width: 640px) {
+  .stack-table thead { display: none; }
+  .stack-table tbody, .stack-table tr, .stack-table td { display: block; width: 100%; }
+  .stack-table tr { margin-bottom: 0.75rem; border: 1px solid rgba(99,102,241,0.25); border-radius: 12px; overflow: hidden; background: #fff; }
+  .stack-table td { box-sizing: border-box; padding: 0.5rem 0.75rem; border-bottom: 1px dashed rgba(99,102,241,0.2); }
+  .stack-table td:last-child { border-bottom: none; }
+  .stack-table td::before {
+    content: attr(data-label);
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #3730a3; /* indigo-800 */
+    margin-bottom: 2px;
+    text-transform: none;
+  }
+}
+
