@@ -1,15 +1,25 @@
-service: web
-env: node
-# Build root (frontend) then install server deps and start the server. Use npm install if no lockfile is committed.
-# If you have a package-lock.json or yarn.lock, prefer `npm ci` for reproducible builds. Adjust as needed in Render settings.
-buildCommand: "if [ -f package-lock.json ]; then npm ci --legacy-peer-deps; else npm install --legacy-peer-deps; fi && npm run build && npm --prefix server install --legacy-peer-deps"
-# Start the server using the server package.json start script
-startCommand: "npm --prefix server start"
-envVars:
-  - key: NODE_VERSION
-    value: 18.20.4
-# Health check path that Render will use to verify the service
-healthCheckPath: "/health"
+services:
+  - type: web
+    name: wiseglobal-server
+    runtime: node
+    region: singapore
+    plan: free
+    rootDir: server
+    buildCommand: npm install
+    startCommand: node index.js
+    healthCheckPath: "/health"
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NODE_VERSION
+        value: 18.20.4
+      - key: PORT
+        value: 3002
+      # Add your environment variables in Render Dashboard
+      # SMTP_SERVER, SMTP_PORT, SMTP_USER, SMTP_PASS
+      # EMAIL_FROM, INFO_EMAIL_TO, CAREER_EMAIL, SUPPORT_EMAIL_TO
+      # AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, AWS_REGION
+      # DIGIO_API_URL, DIGIO_API_KEY
 
-# When deploying, set environment variables in the Render dashboard instead of committing secrets
-# See server/.env.example for a list of variables this service expects.
+# Note: Set sensitive environment variables in the Render dashboard instead of committing them
+# See server/.env.example for a complete list of required variables
